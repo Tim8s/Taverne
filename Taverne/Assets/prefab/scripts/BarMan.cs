@@ -11,8 +11,6 @@ public class BarMan : MonoBehaviour {
 	Rigidbody BarManRigid;
   //ajuste la vitesse de marche
     public float vitesseMarche;
-  //ajuste la vitesse latérale
-    public float vitesseMarcheCoter;
   //ajuste la vitesse de la course
     public float vitesseCourse;
   //permet de faire tomber le personnage
@@ -108,7 +106,7 @@ public class BarMan : MonoBehaviour {
 		}
 
 		//si cette touche est maintenu, le perso va courrir
-		if (Input.GetKey(KeyCode.LeftShift) && BarManAnim.GetBool("marche") == true /* || Input.GetAxis("LT") != 0*/){
+		if (Input.GetKey(KeyCode.RightControl) && BarManAnim.GetBool("marche") == true /* || Input.GetAxis("LT") != 0*/){
 
             BarManAnim.SetBool("course", true);
 			BarManRigid.AddRelativeForce(0, 0, vitesseCourse);}//fin du if

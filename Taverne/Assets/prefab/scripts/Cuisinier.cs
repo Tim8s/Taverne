@@ -11,8 +11,6 @@ public class Cuisinier : MonoBehaviour {
 	Rigidbody cuisinierRigid;
   //ajuste la vitesse de marche
     public float vitesseMarche;
-  //ajuste la vitesse latérale
-    public float vitesseMarcheCoter;
   //ajuste la vitesse de la course
     public float vitesseCourse;
   //permet de faire tomber le personnage

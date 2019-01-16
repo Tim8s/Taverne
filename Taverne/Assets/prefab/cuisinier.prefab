@@ -784,9 +784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3992dac8496f0c04eb34818fa7ab34ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vitesseMarche: 12
-  vitesseMarcheCoter: 12
-  vitesseCourse: 9
+  vitesseMarche: 20
+  vitesseCourse: 15
   forceGravite: -2
 --- !u!136 &136799720943388738
 CapsuleCollider:
