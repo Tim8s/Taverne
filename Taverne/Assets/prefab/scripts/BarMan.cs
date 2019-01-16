@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,6 +15,13 @@ public class BarMan : MonoBehaviour {
     public float vitesseCourse;
   //permet de faire tomber le personnage
     public float forceGravite;
+    public bool peutBouger;
+    public bool mainsLibres;
+    public bool pain;
+    public bool poulet;
+    public bool patate;
+    public bool zoneAssiette;
+    public GameObject assiette;
 
     //Use this for initialization
     void Start () {
@@ -25,6 +32,12 @@ public class BarMan : MonoBehaviour {
       //va chercher ce qu'on a besoin pour le début
 		BarManRigid = GetComponent<Rigidbody>();
 
+		peutBouger = true;
+ 	 	mainsLibres = true;
+		pain = false;
+		poulet = false;
+		patate = false;
+
 	}
 	
   //Update is called once per frame
@@ -32,7 +45,9 @@ public class BarMan : MonoBehaviour {
 
     void FixedUpdate () {
 
-		 BarManAnim.SetBool("marche", false);
+		BarManAnim.SetBool("marche", false);
+
+		if(peutBouger == true){
 
 		if(Input.GetKey(KeyCode.DownArrow)){
 
@@ -114,15 +129,73 @@ public class BarMan : MonoBehaviour {
 	  //sinon il arrêtte de courrir
 		else{BarManAnim.SetBool("course", false);}//fin du else
 
-	    if(Input.GetKeyDown(KeyCode.Keypad1)){BarManAnim.SetTrigger("prendre");}
+		if(Input.GetKeyDown(KeyCode.Keypad0)){
 
-	    if(Input.GetKeyDown(KeyCode.Keypad0)){BarManAnim.SetTrigger("laver");}
+	    	if(zoneAssiette == true && mainsLibres == true){
+
+	    		if(assiette.GetComponent<assiette>().assietteVide == false){
+
+	    			if(assiette.GetComponent<assiette>().pain == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette.GetComponent<assiette>().assietteVide = true;
+	    				assiette.GetComponent<assiette>().pain = false;
+	    				pain = true;
+	    			}
+
+	    			if(assiette.GetComponent<assiette>().poulet == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette.GetComponent<assiette>().assietteVide = true;
+	    				assiette.GetComponent<assiette>().poulet = false;
+	    				poulet = true;
+	    			}
+
+	    			if(assiette.GetComponent<assiette>().patate == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette.GetComponent<assiette>().assietteVide = true;
+	    				assiette.GetComponent<assiette>().patate = false;
+	    				patate = true;
+	    				}
+	    			
+	    			}
+
+	    		}
+
+			}
+
+	}//fin de la fonction bouger
 		   
 	}//fin de la fonction fixedUpdate
 
-	void OnCollisionEnter (Collision infoCollision){}
+	void OnCollisionEnter(Collision infoCollision){}
 
-    void OnTriggerEnter (Collider infoObject){}
+    void OnTriggerEnter(Collider infoObject){}
 
+    void OnTriggerStay(Collider infoObject){
+   
+   		 if(infoObject.gameObject.tag == "assiette" && transform.eulerAngles.y == 270){
 
+    		zoneAssiette = true;
+
+   			}
+
+   			else{
+
+   				 zoneAssiette = false;
+
+   				}
+
+   		}
+   	void bouger(){peutBouger = true;}
 }
