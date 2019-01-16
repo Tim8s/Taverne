@@ -1,70 +1,42 @@
 fileFormatVersion: 2
-guid: 6aa115eb892fc4c47b131a0b482d3d0d
+guid: f18d7e3411076c64d8406cd22ce183c4
 ModelImporter:
-  serializedVersion: 23
+  serializedVersion: 22
   fileIDToRecycleName:
-    100000: group1
-    100002: pCube1
-    100004: pCube10
-    100006: pCube2
-    100008: pCube3
-    100010: pCube4
-    100012: pCube5
-    100014: pCube6
-    100016: pCube7
-    100018: pCube8
-    100020: pCube9
-    100022: //RootNode
-    400000: group1
-    400002: pCube1
-    400004: pCube10
-    400006: pCube2
-    400008: pCube3
-    400010: pCube4
-    400012: pCube5
-    400014: pCube6
-    400016: pCube7
-    400018: pCube8
-    400020: pCube9
-    400022: //RootNode
-    2100000: lambert3
-    2100002: lambert5
-    2100004: lambert1
-    2100006: lambert7
-    2300000: pCube1
-    2300002: pCube10
-    2300004: pCube2
-    2300006: pCube3
-    2300008: pCube4
-    2300010: pCube5
-    2300012: pCube6
-    2300014: pCube7
-    2300016: pCube8
-    2300018: pCube9
-    3300000: pCube1
-    3300002: pCube10
-    3300004: pCube2
-    3300006: pCube3
-    3300008: pCube4
-    3300010: pCube5
-    3300012: pCube6
-    3300014: pCube7
-    3300016: pCube8
-    3300018: pCube9
-    4300000: pCube1
-    4300002: pCube2
-    4300004: pCube3
-    4300006: pCube4
-    4300008: pCube5
-    4300010: pCube6
-    4300012: pCube7
-    4300014: pCube8
-    4300016: pCube9
-    4300018: pCube10
-    9500000: //RootNode
+    100000: //RootNode
+    100002: Ham1/4
+    100004: Ham2/4
+    100006: Ham3/4
+    100008: Ham4/4
+    400000: //RootNode
+    400002: Ham1/4
+    400004: Ham2/4
+    400006: Ham3/4
+    400008: Ham4/4
+    2100000: Bone.004
+    2100002: Meat
+    2100004: Meat.001
+    2100006: Meat.002
+    2100008: Meat.003
+    2100010: HamTexture
+    2300000: //RootNode
+    2300002: Ham1/4
+    2300004: Ham2/4
+    2300006: Ham3/4
+    2300008: Ham4/4
+    3300000: //RootNode
+    3300002: Ham1/4
+    3300004: Ham2/4
+    3300006: Ham3/4
+    3300008: Ham4/4
+    4300000: Ham
+    4300002: Ham4/4
+    4300004: Ham3/4
+    4300006: Ham2/4
+    4300008: Ham1/4
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -113,8 +85,6 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -139,7 +109,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
