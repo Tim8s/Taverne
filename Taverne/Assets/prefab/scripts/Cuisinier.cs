@@ -15,6 +15,9 @@ public class Cuisinier : MonoBehaviour {
     public float vitesseCourse;
   //permet de faire tomber le personnage
     public float forceGravite;
+    public bool peutLaver;
+    public bool peutCuire;
+    public bool peutBouger;
 
     //Use this for initialization
     void Start () {
@@ -24,6 +27,9 @@ public class Cuisinier : MonoBehaviour {
 
       //va chercher ce qu'on a besoin pour le début
 		cuisinierRigid = GetComponent<Rigidbody>();
+		peutLaver = false;
+ 	 	peutCuire = false;
+ 	 	peutBouger = true;
 
 	}
 	
@@ -33,6 +39,8 @@ public class Cuisinier : MonoBehaviour {
     void FixedUpdate () {
 
 		 cuisinierAnim.SetBool("marche", false);
+
+		if(peutBouger == true){
 
 		if(Input.GetKey("s")){
 
@@ -114,15 +122,78 @@ public class Cuisinier : MonoBehaviour {
 	  //sinon il arrêtte de courrir
 		else{cuisinierAnim.SetBool("course", false);}//fin du else
 
-	    if(Input.GetKeyDown("e")){cuisinierAnim.SetTrigger("prendre");}
+	    if(Input.GetKeyDown("e")){
 
-	    if(Input.GetKeyDown("r")){cuisinierAnim.SetTrigger("laver");}
+	    	if(peutLaver == true){
+
+	    		peutBouger = false;
+	    		cuisinierAnim.SetTrigger("laver");
+	    		Invoke ("bouger", 5f);
+	    		}
+
+	    	if(peutCuire == true){
+
+	    		peutBouger = false;
+	    		cuisinierAnim.SetTrigger("prendre");
+	    		Invoke ("bouger", 1f);
+	    		}
+		}
+
+		}//fin de la fonction bouger
 		   
 	}//fin de la fonction fixedUpdate
 
 	void OnCollisionEnter (Collision infoCollision){}
 
-    void OnTriggerEnter (Collider infoObject){}
+    void OnTriggerEnter (Collider infoObject){
 
+    }
+
+    void OnTriggerStay (Collider infoObject){
+
+    	if(infoObject.gameObject.tag == "laver" && transform.eulerAngles.y == 270){
+
+    		peutLaver = true;
+
+   		}
+
+   		else{
+
+   			peutLaver = false;
+
+   			}
+
+   		if(infoObject.gameObject.tag == "cuire" && transform.eulerAngles.y == 270){
+
+    		peutCuire = true;
+
+   		}
+
+   		else{
+
+   			peutCuire = false;
+
+   			}
+
+    }
+
+
+    void OnTriggerExit (Collider infoObject){
+
+    	if(infoObject.gameObject.tag == "laver"){
+
+    		peutLaver = false;
+
+    	}
+
+    	if(infoObject.gameObject.tag == "cuire"){
+
+    		peutLaver = false;
+
+    	}
+
+    }
+
+    void bouger(){peutBouger = true;}
 
 }
