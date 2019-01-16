@@ -21,6 +21,9 @@ public class gestionCommande : MonoBehaviour {
 	//Array qui va contenir les commandes actuelles
 	public GameObject[] ArrayCommande;
 
+	//Array des GameObjects 
+	public GameObject[] ArrayComptoir;
+
 	//Array les positions/*Faculcatif*/
 	//public Sprite[] ArrayPosition;
 
@@ -48,24 +51,31 @@ public class gestionCommande : MonoBehaviour {
 	public void genereCommande(){
 
 		//Change le numero de commande
-		IDCommande++;
-		//noCommande.GetComponent<UnityEngine.UI.Text>().text = "No. " + IDCommande.ToString();
+		//IDCommande++;
 
-		//Sélectionne la commande dans l'array de manière aléatoire
-		print(ArrayMenu[Random.Range(0, 4)]);
-		//ImageCommande.GetComponent<Image>().sprite
+		//Regarde si il y a de la place dans le tableau/ une commande en attente
+		for(int i = 0; i < 10; i++){
+			print(ArrayComptoir[i].transform.GetChild(0).GetComponent<papierScript>().commandeEnAttente);
+			/*if(ArrayComptoir[i].transform.GetChild(0).GetComponent<papierScript>().commandeEnAttente == false){
+				
+			}//fin if*/
+		}//fin for
 
 		//Choisi aleatoirement la commande
-		var commande = ArrayMenu[Random.Range(0, 5)];
+		var commande = ArrayMenu[Random.Range(0, 4)];
 
+		
+
+		//Mets la commande sur un comptoir aléatoirement
+
+		print(commande);
 		ajouteArray(commande);
 
 	}
 
 	public void ajouteArray(Sprite commande){
 
-		//print(ArrayCommande[5].transform.GetChild(1).GetComponent<Image>().sprite);
-
+		//Pour mettre la commande dans l'affichage
 		for(int i = 0; i < 10; i++){
 
 			if(ArrayCommande[i].transform.GetChild(1).GetComponent<Image>().sprite == null){

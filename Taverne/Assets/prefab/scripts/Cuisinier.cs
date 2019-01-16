@@ -168,7 +168,7 @@ public class Cuisinier : MonoBehaviour {
     		peutCuire = true;
 
    		}
-
+   		
    		else{
 
    			peutCuire = false;
