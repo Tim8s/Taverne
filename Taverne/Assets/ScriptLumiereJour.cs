@@ -1,18 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScriptLumiereJour : MonoBehaviour {
 
     Vector3 angleFin;
+    Vector3 angleDebut;
 
     Color secondColor;
     Color thirdColor;
     Color endColor;
 
+    public GameObject panel;
+    public GameObject retourMenu;
+    public GameObject continuer;
+
+    public Text txtQuit;
+    public Text txtContinuer;
+
+    public ScriptLumiereAmbiance lumiereAmbiance;
+
     // Use this for initialization
     void Start ()
     {
+        angleDebut = gameObject.transform.eulerAngles;
+
+        panel.GetComponent<CanvasRenderer>().SetAlpha(0);
+        retourMenu.GetComponent<CanvasRenderer>().SetAlpha(0);
+        continuer.GetComponent<CanvasRenderer>().SetAlpha(0);
         secondColor = new Color(255, 254, 153, 255);
         thirdColor = new Color(169, 108, 27, 255);
         endColor = new Color(0, 0, 0, 255);
@@ -87,5 +103,47 @@ public class ScriptLumiereJour : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
         objectToChange.GetComponent<Light>().color = black;
+        StartCoroutine(FinPartie());
+    }
+
+    IEnumerator FinPartie()
+    {
+        panel.SetActive(true);
+        retourMenu.SetActive(true);
+        continuer.SetActive(true);
+
+        panel.GetComponent<Image>().CrossFadeAlpha(0.5f, 2f, true);
+        retourMenu.GetComponent<Image>().CrossFadeAlpha(0.5f, 2f, true);
+        continuer.GetComponent<Image>().CrossFadeAlpha(0.5f, 2f, true);
+
+        StartCoroutine(AfficherTextes());
+
+        yield return null;
+    }
+
+    IEnumerator AfficherTextes()
+    {
+        yield return new WaitForSeconds(2);
+        retourMenu.GetComponent<Button>().enabled = true;
+        continuer.GetComponent<Button>().enabled = true;
+        txtContinuer.enabled = true;
+        txtQuit.enabled = true;
+    }
+
+    public void ResetLumiere()
+    {
+        panel.SetActive(false);
+        retourMenu.SetActive(false);
+        continuer.SetActive(false);
+
+        panel.GetComponent<CanvasRenderer>().SetAlpha(0);
+        retourMenu.GetComponent<CanvasRenderer>().SetAlpha(0);
+        continuer.GetComponent<CanvasRenderer>().SetAlpha(0);
+
+        gameObject.transform.eulerAngles = angleDebut;
+
+        lumiereAmbiance.ResetLumiere();
+        StartCoroutine(MoveOverSeconds(gameObject, angleFin, 120f));
+        StartCoroutine(ChangeColorOverSeconds(gameObject, secondColor, 30f));
     }
 }

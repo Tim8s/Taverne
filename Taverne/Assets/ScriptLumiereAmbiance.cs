@@ -45,4 +45,11 @@ public class ScriptLumiereAmbiance : MonoBehaviour {
         }
         objectToChange.GetComponent<Light>().intensity = intensity;
     }
+
+    public void ResetLumiere()
+    {
+        gameObject.GetComponent<Light>().intensity = 0;
+
+        StartCoroutine(ChangeIntensityOverSeconds(gameObject, intensity1, 60f));
+    }
 }
