@@ -29,10 +29,10 @@ public class ScriptLumiereJour : MonoBehaviour {
         print(assiette.GetComponent<MeshRenderer>().material.color);
         angleDebut = gameObject.transform.eulerAngles;
 
-        secondColor = new Color(255, 254, 153, 255);
-        thirdColor = new Color(169, 108, 27, 255);
-        endColor = new Color(0, 0, 0, 255);
-        angleFin = new Vector3(gameObject.transform.eulerAngles.x, 160, gameObject.transform.eulerAngles.z);
+        secondColor = new Color(1, 0.9960784f, 0.6f, 1);
+        thirdColor = new Color(0.6627451f, 0.4235294f, 0.1058824f, 1);
+        endColor = new Color(0, 0, 0, 1);
+        angleFin = new Vector3(gameObject.transform.eulerAngles.x, 400, gameObject.transform.eulerAngles.z);
 
         StartCoroutine(MoveOverSeconds(gameObject, angleFin, 120f));
         StartCoroutine(ChangeColorOverSeconds(gameObject, secondColor, 30f));
@@ -48,6 +48,7 @@ public class ScriptLumiereJour : MonoBehaviour {
     {
         float elapsedTime = 0;
         Vector3 startingPos = objectToMove.transform.eulerAngles;
+        print(startingPos);
         while (elapsedTime < seconds)
         {
             objectToMove.transform.eulerAngles = Vector3.Lerp(startingPos, end, (elapsedTime / seconds));

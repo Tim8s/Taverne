@@ -34,9 +34,10 @@ public class gestionCommande : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//Start la fonction répétante pour générer
-		//InvokeRepeating("genereCommande", 3, delaiEntreCommande);
-	}
+        //Start la fonction répétante pour générer
+        genereCommandeTuto();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
