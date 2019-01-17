@@ -21,15 +21,13 @@ public class gestionCommande : MonoBehaviour {
 
 	//Tableaux des sprites des boissons et nourriture
 	public Sprite[] ArrayMenu;
+	public Sprite oeufPaque;
 
 	//Array qui va contenir les commandes actuelles
 	public GameObject[] ArrayCommande;
 
 	//Array des GameObjects 
 	public GameObject[] ArrayComptoir;
-
-	//Array les positions/*Faculcatif*/
-	//public Sprite[] ArrayPosition;
 
 
 	// Use this for initialization
@@ -53,6 +51,13 @@ public class gestionCommande : MonoBehaviour {
 			supprimeCommande();
 		}
 
+		if(Input.GetKeyUp("p"))
+		{
+			//Random la chance de pogner un oeuf de pâque
+				int chanceOeuf = Random.Range(0,20);
+				print("L'oeuf est " + chanceOeuf);
+		}
+
 		//Start la fonction répétante pour générer
 		//InvokeRepeating("genereCommande", 3, delaiEntreCommande);
 
@@ -60,15 +65,13 @@ public class gestionCommande : MonoBehaviour {
 
 	public void genereCommande(){
 
-		//Change le numero de commande
-		
+
 
 		//Regarde si il y a de la place dans le tableau/ une commande en attente
 		if(NbsCommandeGen < NbsCommandeMax){
 
 			//Choisi aleatoirement la commande
 			int comptoirInt = Random.Range(0, 10);
-
 			while(ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commandeGenerer == true){
 				comptoirInt = Random.Range(0, 10);
 			}//fin while
@@ -79,6 +82,16 @@ public class gestionCommande : MonoBehaviour {
 			//Fait apparaitre le papier(Renderder)
 			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
 
+
+			//Random la chance de pogner un oeuf de pâque
+			int chanceOeuf = Random.Range(0,2);
+			print("L'oeuf est " + chanceOeuf);
+			if(chanceOeuf == 0){
+
+			}else{
+
+			}//fin if else oeuf
+
 			//Donne la commande au papier
 			//Choisi aleatoirement la commande
 			var commandeSprite = ArrayMenu[Random.Range(0, 5)];
@@ -87,12 +100,10 @@ public class gestionCommande : MonoBehaviour {
 			//Donne le numero de la commande
 			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().NoCommande = IDCommande;
 
+		}//fin if NbsCommande
 
 
-		}//fin if
-
-
-		}//fin function
+	}//fin function
 
 
 	public void genereCommandeTuto(){
