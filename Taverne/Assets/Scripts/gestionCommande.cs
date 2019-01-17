@@ -9,11 +9,15 @@ using UnityEngine.UI;
 public class gestionCommande : MonoBehaviour {
 
 	//La quantité maximal de commande qu'il peut avoir à la fois
-	public int NbsCommandeMax;
+	private int NbsCommandeMax = 10;
+	private int NbsCommandeGen = 0;
 
 	//Le délai qu'il y a entre 2 commandes
 	public int delaiEntreCommande;
-	public int IDCommande = 0;
+	public int IDCommande;
+
+	//Si le tuto est terminer
+	public bool tutoFin;
 
 	//Tableaux des sprites des boissons et nourriture
 	public Sprite[] ArrayMenu;
@@ -30,15 +34,18 @@ public class gestionCommande : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		//Start la fonction répétante pour générer
+		//InvokeRepeating("genereCommande", 3, delaiEntreCommande);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if(Input.GetKeyUp("a"))
+		if(tutoFin == true)
 		{
-			genereCommande();
+			//Start la fonction répétante pour générer
+			InvokeRepeating("genereCommande", 3, delaiEntreCommande);
+			tutoFin = false;
 		}
 
 		if(Input.GetKeyUp("s"))
@@ -46,32 +53,73 @@ public class gestionCommande : MonoBehaviour {
 			supprimeCommande();
 		}
 
-	}
+		//Start la fonction répétante pour générer
+		//InvokeRepeating("genereCommande", 3, delaiEntreCommande);
+
+	}//fin update
 
 	public void genereCommande(){
 
 		//Change le numero de commande
-		//IDCommande++;
-
-		//Regarde si il y a de la place dans le tableau/ une commande en attente
-		for(int i = 0; i < 10; i++){
-			print(ArrayComptoir[i].transform.GetChild(0).GetComponent<papierScript>().commandeEnAttente);
-			/*if(ArrayComptoir[i].transform.GetChild(0).GetComponent<papierScript>().commandeEnAttente == false){
-				
-			}//fin if*/
-		}//fin for
-
-		//Choisi aleatoirement la commande
-		var commande = ArrayMenu[Random.Range(0, 4)];
-
 		
 
+		//Regarde si il y a de la place dans le tableau/ une commande en attente
+		if(NbsCommandeGen < NbsCommandeMax){
+
+			//Choisi aleatoirement la commande
+			int comptoirInt = Random.Range(0, 10);
+
+			while(ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commandeGenerer == true){
+				comptoirInt = Random.Range(0, 10);
+			}//fin while
+			IDCommande++;
+			//Change la bool en true
+			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commandeGenerer = true;
+
+			//Fait apparaitre le papier(Renderder)
+			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+
+			//Donne la commande au papier
+			//Choisi aleatoirement la commande
+			var commandeSprite = ArrayMenu[Random.Range(0, 5)];
+			//donne le nom de la commande
+			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commande = commandeSprite.name;
+			//Donne le numero de la commande
+			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().NoCommande = IDCommande;
+
+
+
+		}//fin if
+
+
+		}//fin function
+
+
+	public void genereCommandeTuto(){
+		
+			//Choisi aleatoirement le comptoir
+			int comptoirInt = Random.Range(0, 9);
+
+			IDCommande++;
+
+			//Change la bool en true
+			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commandeGenerer = true;
+
+			//Fait apparaitre le papier(Renderder)
+			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+
+			//Donne la commande au papier
+			//Choisi aleatoirement la commande
+			var commandeSprite = ArrayMenu[1];
+			//donne le nom de la commande
+			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commande = commandeSprite.name;
+			//Donne le numero de la commande
+			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().NoCommande = IDCommande;
+
 		//Mets la commande sur un comptoir aléatoirement
+		//ajouteArray(commande);
 
-		print(commande);
-		ajouteArray(commande);
-
-	}
+	}//fin fonction
 
 	public void ajouteArray(Sprite commande){
 
@@ -90,15 +138,15 @@ public class gestionCommande : MonoBehaviour {
 		}//fin for
 
 		
-	}
+	}//fin fonction
 
 
 	public void supprimeCommande(){
-		var aleatoire = Random.Range(0, 9);
+		var aleatoire = Random.Range(0, 10);
 
 		ArrayCommande[aleatoire].transform.GetChild(1).GetComponent<Image>().sprite = null;
 		ArrayCommande[aleatoire].transform.GetChild(0).GetComponent<Text>().text = "No";
-	}
+	}//fin fonction
 
 
 }
