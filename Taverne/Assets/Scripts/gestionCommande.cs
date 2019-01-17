@@ -31,6 +31,10 @@ public class gestionCommande : MonoBehaviour {
 
     public Sprite commandeSprite;
 
+    public float score;
+
+    public Text txtScore;
+
 
 	// Use this for initialization
 	void Start () {
@@ -88,6 +92,7 @@ public class gestionCommande : MonoBehaviour {
 
             //Fait apparaitre son timer
             ArrayComptoir[comptoirInt].transform.GetChild(0).GetChild(0).GetChild(1).gameObject.SetActive(true);
+            ArrayComptoir[comptoirInt].transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).gameObject.GetComponent<Cadran>().Initialize();
             ArrayComptoir[comptoirInt].transform.GetChild(0).GetChild(0).GetChild(1).GetChild(2).GetComponent<Text>().text = IDCommande + "";
 
             NbsCommandeGen++;
@@ -170,7 +175,7 @@ public class gestionCommande : MonoBehaviour {
 	}//fin fonction
 
 
-	public void supprimeCommande(int iNoCommande){
+	public void supprimeCommande(int iNoCommande, int points){
 
         for(var i = 0; i < 10; i++)
         {
@@ -180,7 +185,18 @@ public class gestionCommande : MonoBehaviour {
                 ArrayCommande[i].transform.GetChild(0).GetComponent<Text>().text = "No";
             }
         }
-	}//fin fonction
+
+        if (score == 0 && points < 0)
+        {
+            score = 0;
+        }
+        else
+        {
+            score += points;
+
+            txtScore.text = "Score : " + score;
+        }
+    }//fin fonction
 
 
 }

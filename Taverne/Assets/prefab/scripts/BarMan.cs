@@ -513,7 +513,7 @@ public class BarMan : MonoBehaviour {
         {
             if (infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commande.name == "pain" && pain == true)
             {
-                gererCommande.supprimeCommande(infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().NoCommande);
+                gererCommande.supprimeCommande(infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().NoCommande, 20);
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).gameObject.SetActive(false);
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().fillAmount = 0;
                 pain = false;
@@ -522,7 +522,7 @@ public class BarMan : MonoBehaviour {
             }
             else if (infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commande.name == "patate" && patate == true)
             {
-                gererCommande.supprimeCommande(infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().NoCommande);
+                gererCommande.supprimeCommande(infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().NoCommande, 20);
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).gameObject.SetActive(false);
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().fillAmount = 0;
                 patate = false;
@@ -531,7 +531,7 @@ public class BarMan : MonoBehaviour {
             }
             else if (infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commande.name == "poulet" && poulet == true)
             {
-                gererCommande.supprimeCommande(infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().NoCommande);
+                gererCommande.supprimeCommande(infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().NoCommande, 20);
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).gameObject.SetActive(false);
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().fillAmount = 0;
                 poulet = false;
@@ -540,7 +540,7 @@ public class BarMan : MonoBehaviour {
             }
             else if (infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commande.name == "vin" && vin == true)
             {
-                gererCommande.supprimeCommande(infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().NoCommande);
+                gererCommande.supprimeCommande(infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().NoCommande, 20);
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).gameObject.SetActive(false);
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().fillAmount = 0;
                 vin = false;
@@ -549,7 +549,7 @@ public class BarMan : MonoBehaviour {
             }
             else if (infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commande.name == "biere" && bierre == true)
             {
-                gererCommande.supprimeCommande(infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().NoCommande);
+                gererCommande.supprimeCommande(infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().NoCommande, 20);
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).gameObject.SetActive(false);
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().fillAmount = 0;
                 bierre = false;
