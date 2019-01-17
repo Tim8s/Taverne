@@ -19,6 +19,8 @@ public class ScriptLumiereJour : MonoBehaviour {
     public GameObject txt3;
     public GameObject ballounes;
 
+    public Image pancarte;
+
     public ScriptLumiereAmbiance lumiereAmbiance;
 
     // Use this for initialization
@@ -108,6 +110,7 @@ public class ScriptLumiereJour : MonoBehaviour {
         txt2.SetActive(true);
         txt3.SetActive(true);
 
+        pancarte.enabled = true;
         ballounes.SetActive(true);
         objetsVictoire.SetActive(true);
 
