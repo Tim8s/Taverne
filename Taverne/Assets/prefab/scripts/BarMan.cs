@@ -41,6 +41,7 @@ public class BarMan : MonoBehaviour {
     public GameObject patateObj;
     public GameObject bouteilleVin;
     public GameObject MugBierre;
+    public bool peutSauter;
 
     public gestionCommande gererCommande;
 
@@ -55,6 +56,7 @@ public class BarMan : MonoBehaviour {
 
 		peutBouger = true;
  	 	mainsLibres = true;
+ 	 	peutSauter = true;
 
 	}
 	
@@ -138,6 +140,14 @@ public class BarMan : MonoBehaviour {
 
 		}
 
+		if(Input.GetKeyDown(KeyCode.KeypadEnter) && peutSauter == true){
+
+	    		BarManAnim.SetTrigger("saute");
+	    		Invoke ("sauter", 0.3f);
+	    		Invoke ("reSaute", 1.5f);
+	    		peutSauter = false;
+	    	}
+
 		//si cette touche est maintenu, le perso va courrir
 		if (Input.GetKey(KeyCode.Keypad0) && BarManAnim.GetBool("marche") == true /* || Input.GetAxis("LT") != 0*/){
 
@@ -150,7 +160,7 @@ public class BarMan : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.KeypadPeriod)){
 
 
-			if(zonePoubelle == true && mainsLibres == false){
+			if(zonePoubelle == true && mainsLibres == false && peutSauter == false){
 
 	    		peutBouger = false;
 	    	    BarManAnim.SetTrigger("prendre");
@@ -637,4 +647,9 @@ public class BarMan : MonoBehaviour {
 
     	if(bierre == true){MugBierre.SetActive(true);}
     }
+
+    void sauter(){BarManRigid.AddRelativeForce(0, 9, 0, ForceMode.Impulse);}
+
+    void reSaute(){peutSauter = true;}
+
 }
