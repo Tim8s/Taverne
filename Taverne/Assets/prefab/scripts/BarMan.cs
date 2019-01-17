@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BarMan : MonoBehaviour {
 
@@ -35,6 +36,8 @@ public class BarMan : MonoBehaviour {
     public GameObject assiette4;
     public GameObject assiette5;
     public bool zonePoubelle;
+
+    public gestionCommande gererCommande;
 
     //Use this for initialization
     void Start () {
@@ -131,7 +134,7 @@ public class BarMan : MonoBehaviour {
 		}
 
 		//si cette touche est maintenu, le perso va courrir
-		if (Input.GetKey(KeyCode.RightControl) && BarManAnim.GetBool("marche") == true /* || Input.GetAxis("LT") != 0*/){
+		if (Input.GetKey(KeyCode.RightShift) && BarManAnim.GetBool("marche") == true /* || Input.GetAxis("LT") != 0*/){
 
             BarManAnim.SetBool("course", true);
 			BarManRigid.AddRelativeForce(0, 0, vitesseCourse);}//fin du if
@@ -397,7 +400,9 @@ public class BarMan : MonoBehaviour {
 
 	void OnCollisionEnter(Collision infoCollision){}
 
-    void OnTriggerEnter(Collider infoObject){}
+    void OnTriggerEnter(Collider infoObject){
+
+    }
 
     void OnTriggerStay(Collider infoObject){
 
@@ -497,6 +502,36 @@ public class BarMan : MonoBehaviour {
 
    			}
 
-   		}
+        if (infoObject.gameObject.tag == "comptoir" && infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commandeGenerer == true && infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commandePris == false && Input.GetKeyDown(KeyCode.Keypad0))
+        {
+            infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commandePris = true;
+            infoObject.gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+
+            gererCommande.ajouteArray(infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commande, infoObject.gameObject.transform.GetChild(0));
+        }
+        else if (infoObject.gameObject.tag == "comptoir" && infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commandeGenerer == true && infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commandePris == true && Input.GetKeyDown(KeyCode.Keypad0))
+        {
+            if (infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commande.name == "pain" && pain == true)
+            {
+                infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).gameObject.SetActive(false);
+                infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().fillAmount = 0;
+                print("SUCCES");
+            }
+            else if (infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commande.name == "patate" && patate == true)
+            {
+                infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).gameObject.SetActive(false);
+                infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().fillAmount = 0;
+                print("SUCCES");
+            }
+            else if (infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commande.name == "poulet" && poulet == true)
+            {
+                gererCommande.supprimeCommande(infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().NoCommande);
+                infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).gameObject.SetActive(false);
+                infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().fillAmount = 0;
+                print("SUCCES");
+            }
+        }
+
+   	}
    	void bouger(){peutBouger = true;}
 }

@@ -521,7 +521,7 @@ public class Cuisinier : MonoBehaviour {
 
    			}
 
-   		if(infoObject.gameObject.tag == "pain" && transform.eulerAngles.y == 180){
+   		if(infoObject.gameObject.tag == "pain" && transform.eulerAngles.y == 270){
 
     		zonePain = true;
 

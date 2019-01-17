@@ -29,12 +29,15 @@ public class gestionCommande : MonoBehaviour {
 	//Array des GameObjects 
 	public GameObject[] ArrayComptoir;
 
+    public Sprite commandeSprite;
+
 
 	// Use this for initialization
 	void Start () {
         //Start la fonction répétante pour générer
-        genereCommandeTuto();
+        //genereCommandeTuto();
 
+        InvokeRepeating("genereCommande", 3, delaiEntreCommande);
     }
 	
 	// Update is called once per frame
@@ -47,16 +50,16 @@ public class gestionCommande : MonoBehaviour {
 			tutoFin = false;
 		}
 
-		if(Input.GetKeyUp("s"))
+		/*if(Input.GetKeyUp("s"))
 		{
 			supprimeCommande();
-		}
+		}*/
 
 		if(Input.GetKeyUp("p"))
 		{
 			//Random la chance de pogner un oeuf de pâque
 				int chanceOeuf = Random.Range(0,20);
-				print("L'oeuf est " + chanceOeuf);
+				//print("L'oeuf est " + chanceOeuf);
 		}
 
 		//Start la fonction répétante pour générer
@@ -83,17 +86,23 @@ public class gestionCommande : MonoBehaviour {
 			//Fait apparaitre le papier(Renderder)
 			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
 
+            //Fait apparaitre son timer
+            ArrayComptoir[comptoirInt].transform.GetChild(0).GetChild(0).GetChild(1).gameObject.SetActive(true);
+            ArrayComptoir[comptoirInt].transform.GetChild(0).GetChild(0).GetChild(1).GetChild(2).GetComponent<Text>().text = IDCommande + "";
 
-			//*************** Random la chance de pogner un oeuf de pâque *******************************/
-			int chanceOeuf = Random.Range(0,2);
-			print("L'oeuf est " + chanceOeuf);
+            NbsCommandeGen++;
+
+
+            //*************** Random la chance de pogner un oeuf de pâque *******************************/
+            int chanceOeuf = Random.Range(0,2);
+			//print("L'oeuf est " + chanceOeuf);
 			if(chanceOeuf == 0){
-				print("Oeuf a été pogner");
+				//print("Oeuf a été pogner");
 				//Donne la commande au papier
 				//Choisi aleatoirement la commande
 
 				//donne le nom de la commande
-				ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commande = oeufPaque.name;
+				ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commande = oeufPaque;
 				//Donne le numero de la commande
 				ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().NoCommande = IDCommande;
 			}else{
@@ -103,9 +112,9 @@ public class gestionCommande : MonoBehaviour {
 
 			//Donne la commande au papier
 			//Choisi aleatoirement la commande
-			var commandeSprite = ArrayMenu[Random.Range(0, 5)];
+			commandeSprite = ArrayMenu[Random.Range(0, 5)];
 			//donne le nom de la commande
-			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commande = commandeSprite.name;
+			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commande = commandeSprite;
 			//Donne le numero de la commande
 			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().NoCommande = IDCommande;
 
@@ -132,7 +141,7 @@ public class gestionCommande : MonoBehaviour {
 			//Choisi aleatoirement la commande
 			var commandeSprite = ArrayMenu[1];
 			//donne le nom de la commande
-			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commande = commandeSprite.name;
+			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commande = commandeSprite;
 			//Donne le numero de la commande
 			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().NoCommande = IDCommande;
 
@@ -141,7 +150,7 @@ public class gestionCommande : MonoBehaviour {
 
 	}//fin fonction
 
-	public void ajouteArray(Sprite commande){
+	public void ajouteArray(Sprite commande, Transform papier){
 
 		//Pour mettre la commande dans l'affichage
 		for(int i = 0; i < 10; i++){
@@ -151,7 +160,7 @@ public class gestionCommande : MonoBehaviour {
 				ArrayCommande[i].transform.GetChild(1).GetComponent<Image>().sprite = commande;
 
 				//Ajoute le numéro de commande
-				ArrayCommande[i].transform.GetChild(0).GetComponent<Text>().text = "No. " + IDCommande.ToString();
+				ArrayCommande[i].transform.GetChild(0).GetComponent<Text>().text = "No. " + papier.GetComponent<papierScript>().NoCommande;
 				break;
 			}//fin if
 
@@ -161,11 +170,16 @@ public class gestionCommande : MonoBehaviour {
 	}//fin fonction
 
 
-	public void supprimeCommande(){
-		var aleatoire = Random.Range(0, 10);
+	public void supprimeCommande(int iNoCommande){
 
-		ArrayCommande[aleatoire].transform.GetChild(1).GetComponent<Image>().sprite = null;
-		ArrayCommande[aleatoire].transform.GetChild(0).GetComponent<Text>().text = "No";
+        for(var i = 0; i < 10; i++)
+        {
+            if (ArrayCommande[i].transform.GetChild(0).GetComponent<Text>().text == "No. " + iNoCommande)
+            {
+                ArrayCommande[i].transform.GetChild(1).GetComponent<Image>().sprite = null;
+                ArrayCommande[i].transform.GetChild(0).GetComponent<Text>().text = "No";
+            }
+        }
 	}//fin fonction
 
 
