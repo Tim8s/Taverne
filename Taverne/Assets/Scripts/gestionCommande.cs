@@ -10,7 +10,7 @@ public class gestionCommande : MonoBehaviour {
 
 	//La quantité maximal de commande qu'il peut avoir à la fois
 	private int NbsCommandeMax = 10;
-	private int NbsCommandeGen = 0;
+	public int NbsCommandeGen = 0;
 
 	//Le délai qu'il y a entre 2 commandes
 	public int delaiEntreCommande;
@@ -91,7 +91,7 @@ public class gestionCommande : MonoBehaviour {
 
 		//Regarde si il y a de la place dans le tableau/ une commande en attente
 		if(NbsCommandeGen < NbsCommandeMax){
-
+            
 			//Choisi aleatoirement la commande
 			int comptoirInt = Random.Range(0, 10);
 			while(ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commandeGenerer == true){
@@ -110,7 +110,7 @@ public class gestionCommande : MonoBehaviour {
             ArrayComptoir[comptoirInt].transform.GetChild(0).GetChild(0).GetChild(1).GetChild(2).GetComponent<Text>().text = IDCommande + "";
 
             NbsCommandeGen++;
-
+            print(NbsCommandeGen);
 
             //*************** Random la chance de pogner un oeuf de pâque *******************************/
             int chanceOeuf = Random.Range(0,2);

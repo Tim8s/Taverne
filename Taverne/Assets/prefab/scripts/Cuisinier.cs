@@ -163,7 +163,7 @@ public class Cuisinier : MonoBehaviour {
 
 	    if(Input.GetKeyDown("e")){
 
-	    	if(zonePoubelle == true && mainsLibres == false && peutSauter == false){
+	    	if(zonePoubelle == true && mainsLibres == false && peutSauter == true){
 
 	    		peutBouger = false;
 	    	    cuisinierAnim.SetTrigger("prendre");
@@ -176,8 +176,8 @@ public class Cuisinier : MonoBehaviour {
 	    		painCuit = false;
 	    		pouletCuit = false;
 	    		patateCuit = false;
-
-	    	}
+                gameObject.GetComponent<Rigidbody>().AddForce(transform.up * 10, ForceMode.Impulse);
+            }
 
 	    	if(zoneLavabo == true && assietteSale == true){
 

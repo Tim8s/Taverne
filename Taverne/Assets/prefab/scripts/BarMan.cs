@@ -161,10 +161,10 @@ public class BarMan : MonoBehaviour {
 
 
 			if(zonePoubelle == true && mainsLibres == false && peutSauter == true){
-					if (gererCommande.tutoFin == false) {
-						gererCommande.txtTuto5.SetActive (false);
-						gererCommande.txtTuto6.SetActive (true);
-					}
+			    if (gererCommande.tutoFin == false) {
+					gererCommande.txtTuto5.SetActive (false);
+					gererCommande.txtTuto6.SetActive (true);
+				}
 	    		peutBouger = false;
 	    	    BarManAnim.SetTrigger("prendre");
 	    		Invoke ("bouger", 1f);
@@ -175,7 +175,8 @@ public class BarMan : MonoBehaviour {
 	    		patate = false;
 	    		bierre = false;
 	    		vin = false;
-
+                gameObject.GetComponent<Rigidbody>().AddForce(transform.up * 10, ForceMode.Impulse);
+                
 	    	}
 
 			if(zoneBierre == true && mainsLibres == true){
@@ -574,7 +575,9 @@ public class BarMan : MonoBehaviour {
 				gererCommande.txtTuto1.SetActive(false);
 				gererCommande.txtTuto2.SetActive(true);
 				gererCommande.lumPoule.SetActive (true);
-			}
+                infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commandeGenerer = false;
+
+            }
             infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commandePris = true;
             infoObject.gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
 
