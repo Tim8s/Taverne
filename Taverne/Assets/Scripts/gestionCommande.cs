@@ -35,6 +35,9 @@ public class gestionCommande : MonoBehaviour {
 
     public Text txtScore;
 
+    public Image fillScore;
+    public Image fondScore;
+
 
 	// Use this for initialization
 	void Start () {
@@ -194,7 +197,8 @@ public class gestionCommande : MonoBehaviour {
         {
             score += points;
 
-            txtScore.text = "Score : " + score;
+            fillScore.fillAmount = score / 30; 
+            txtScore.text = score + " / 30";
         }
     }//fin fonction
 

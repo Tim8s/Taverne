@@ -12,21 +12,18 @@ public class ScriptLumiereJour : MonoBehaviour {
     Color thirdColor;
     Color endColor;
 
-    public GameObject assiette;
-    public GameObject cheese;
-    public GameObject bread;
-    public GameObject potato;
+    public GameObject objetsVictoire;
 
     public GameObject txt1;
     public GameObject txt2;
     public GameObject txt3;
+    public GameObject ballounes;
 
     public ScriptLumiereAmbiance lumiereAmbiance;
 
     // Use this for initialization
     void Start ()
     {
-        print(assiette.GetComponent<MeshRenderer>().material.color);
         angleDebut = gameObject.transform.eulerAngles;
 
         secondColor = new Color(1, 0.9960784f, 0.6f, 1);
@@ -106,43 +103,24 @@ public class ScriptLumiereJour : MonoBehaviour {
 
     IEnumerator FinPartie()
     {
-        assiette.GetComponent<MeshRenderer>().material.color = new Color(assiette.GetComponent<MeshRenderer>().material.color.r, assiette.GetComponent<MeshRenderer>().material.color.g, assiette.GetComponent<MeshRenderer>().material.color.b, 0);
-        bread.GetComponent<MeshRenderer>().material.color = new Color(bread.GetComponent<MeshRenderer>().material.color.r, bread.GetComponent<MeshRenderer>().material.color.g, bread.GetComponent<MeshRenderer>().material.color.b, 0);
-        potato.GetComponent<MeshRenderer>().material.color = new Color(potato.GetComponent<MeshRenderer>().material.color.r, potato.GetComponent<MeshRenderer>().material.color.g, potato.GetComponent<MeshRenderer>().material.color.b, 0);
-        cheese.GetComponent<MeshRenderer>().material.color = new Color(cheese.GetComponent<MeshRenderer>().material.color.r, cheese.GetComponent<MeshRenderer>().material.color.g, cheese.GetComponent<MeshRenderer>().material.color.b, 0);
-
-        print(assiette.GetComponent<MeshRenderer>().material.color);
-        assiette.SetActive(true);
-        bread.SetActive(true);
-        cheese.SetActive(true);
-        potato.SetActive(true);
 
         txt1.SetActive(true);
         txt2.SetActive(true);
         txt3.SetActive(true);
 
-        Color assietteStart = assiette.GetComponent<MeshRenderer>().material.color;
-        Color breadStart = bread.GetComponent<MeshRenderer>().material.color;
-        Color potatoStart = potato.GetComponent<MeshRenderer>().material.color;
-        Color cheeseStart = cheese.GetComponent<MeshRenderer>().material.color;
+        ballounes.SetActive(true);
+        objetsVictoire.SetActive(true);
 
-        float elapsedTime = 0;
-        while (elapsedTime > 2)
-        {
-            assiette.GetComponent<MeshRenderer>().material.color = Color.Lerp(assietteStart, new Color(assietteStart.r, assietteStart.g, assietteStart.b, 1), elapsedTime / 2);
-            bread.GetComponent<MeshRenderer>().material.color = Color.Lerp(breadStart, new Color(breadStart.r, breadStart.g, breadStart.b, 1), elapsedTime / 2);
-            potato.GetComponent<MeshRenderer>().material.color = Color.Lerp(potatoStart, new Color(potatoStart.r, potatoStart.g, potatoStart.b, 1), elapsedTime / 2);
-            cheese.GetComponent<MeshRenderer>().material.color = Color.Lerp(cheeseStart, new Color(cheeseStart.r, cheeseStart.g, cheeseStart.b, 1), elapsedTime / 2);
-
-            elapsedTime += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
-        assiette.GetComponent<MeshRenderer>().material.color = new Color(assietteStart.r, assietteStart.g, assietteStart.b, 1);
-        bread.GetComponent<MeshRenderer>().material.color = new Color(breadStart.r, breadStart.g, breadStart.b, 1);
-        potato.GetComponent<MeshRenderer>().material.color = new Color(potatoStart.r, potatoStart.g, potatoStart.b, 1);
-        cheese.GetComponent<MeshRenderer>().material.color = new Color(cheeseStart.r, cheeseStart.g, cheeseStart.b, 1);
+        StartCoroutine(DetruireBallounes());
 
         yield return null;
+    }
+
+    IEnumerator DetruireBallounes()
+    {
+        yield return new WaitForSeconds(2);
+
+        ballounes.SetActive(false);
     }
 
     public void ResetLumiere()
