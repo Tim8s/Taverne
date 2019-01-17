@@ -9110,6 +9110,12 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 534669904}
+    - target: {fileID: 114667613794075250, guid: b038f2826c2904c4488392505aa3ef73,
+        type: 2}
+      propertyPath: oeufPaque
+      value: 
+      objectReference: {fileID: 21300000, guid: 6de027b0e9d66494da5e5c3300318b57,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b038f2826c2904c4488392505aa3ef73, type: 2}
   m_IsPrefabAsset: 0
@@ -11550,8 +11556,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1569983243}
-  m_LocalRotation: {x: 0.45607626, y: 0.07669854, z: 0.039491665, w: -0.8857495}
-  m_LocalPosition: {x: 43.348904, y: -162.65807, z: -149.08255}
+  m_LocalRotation: {x: -0.32334232, y: 0.026963929, z: 0.009217767, w: 0.94585294}
+  m_LocalPosition: {x: 9.085439, y: -24.716587, z: -53.966885}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 436005970}
