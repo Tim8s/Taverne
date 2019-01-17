@@ -538,7 +538,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3470caba19a20544b99b36778afc272b, type: 3}
       propertyPath: m_RootOrder
-      value: 67
+      value: 66
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3470caba19a20544b99b36778afc272b, type: 3}
       propertyPath: m_LocalScale.x
@@ -758,7 +758,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400102, guid: 8f7d2c0048051a940a6fb0dbb10e2d13, type: 3}
       propertyPath: m_RootOrder
-      value: 82
+      value: 81
       objectReference: {fileID: 0}
     - target: {fileID: 400102, guid: 8f7d2c0048051a940a6fb0dbb10e2d13, type: 3}
       propertyPath: m_LocalScale.x
@@ -879,6 +879,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!65 &252149616
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 252149613}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.50263685, z: 1}
+  m_Center: {x: 0, y: -0.24868327, z: 0}
 --- !u!1 &285716456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,7 +1558,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &377442479
 Prefab:
@@ -2303,7 +2315,7 @@ Transform:
   - {fileID: 1349521498}
   - {fileID: 2005552714}
   m_Father: {fileID: 0}
-  m_RootOrder: 66
+  m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 90.20801, z: 0}
 --- !u!1001 &494228927
 Prefab:
@@ -2731,7 +2743,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2738366c904e00d4cb518119b2d99eef, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2738366c904e00d4cb518119b2d99eef, type: 2}
       propertyPath: m_LocalScale.x
@@ -6573,7 +6585,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 81
+  m_RootOrder: 82
   m_LocalEulerAnglesHint: {x: 0, y: -88.40501, z: 0}
 --- !u!4 &1746485446 stripped
 Transform:
