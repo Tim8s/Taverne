@@ -36,6 +36,11 @@ public class BarMan : MonoBehaviour {
     public GameObject assiette4;
     public GameObject assiette5;
     public bool zonePoubelle;
+    public GameObject painObj;
+    public GameObject pouletObj;
+    public GameObject patateObj;
+    public GameObject bouteilleVin;
+    public GameObject MugBierre;
 
     public gestionCommande gererCommande;
 
@@ -150,6 +155,7 @@ public class BarMan : MonoBehaviour {
 	    		peutBouger = false;
 	    	    BarManAnim.SetTrigger("prendre");
 	    		Invoke ("bouger", 1f);
+	    		Invoke ("disparaitre", 0.5f);
 	    		mainsLibres = true;
 	    		pain = false;
 	    		poulet = false;
@@ -164,6 +170,7 @@ public class BarMan : MonoBehaviour {
 	    		peutBouger = false;
 	    		BarManAnim.SetTrigger("prendre");
 	    		Invoke ("bouger", 1f);
+	    		Invoke ("apparaitre", 0.5f);
 	    		mainsLibres = false;
 	    		bierre = true;
 	    		}
@@ -173,6 +180,7 @@ public class BarMan : MonoBehaviour {
 	    		peutBouger = false;
 	    		BarManAnim.SetTrigger("prendre");
 	    		Invoke ("bouger", 1f);
+	    		Invoke ("apparaitre", 0.5f);
 	    		mainsLibres = false;
 	    		vin = true;
 	    		}
@@ -188,9 +196,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette1.GetComponent<assiette>().assietteVide = true;
 	    				assiette1.GetComponent<assiette>().pain = false;
+	    				assiette1.GetComponent<assiette>().callDisparaitre();
 	    				pain = true;
 	    			}
 
@@ -199,9 +209,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette1.GetComponent<assiette>().assietteVide = true;
 	    				assiette1.GetComponent<assiette>().poulet = false;
+	    				assiette1.GetComponent<assiette>().callDisparaitre();
 	    				poulet = true;
 	    			}
 
@@ -210,9 +222,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette1.GetComponent<assiette>().assietteVide = true;
 	    				assiette1.GetComponent<assiette>().patate = false;
+	    				assiette1.GetComponent<assiette>().callDisparaitre();
 	    				patate = true;
 	    				}
 	    			
@@ -231,9 +245,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette2.GetComponent<assiette>().assietteVide = true;
 	    				assiette2.GetComponent<assiette>().pain = false;
+	    				assiette2.GetComponent<assiette>().callDisparaitre();
 	    				pain = true;
 	    			}
 
@@ -242,9 +258,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette2.GetComponent<assiette>().assietteVide = true;
 	    				assiette2.GetComponent<assiette>().poulet = false;
+	    				assiette2.GetComponent<assiette>().callDisparaitre();
 	    				poulet = true;
 	    			}
 
@@ -253,9 +271,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette2.GetComponent<assiette>().assietteVide = true;
 	    				assiette2.GetComponent<assiette>().patate = false;
+	    				assiette2.GetComponent<assiette>().callDisparaitre();
 	    				patate = true;
 	    				}
 	    			
@@ -274,9 +294,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette3.GetComponent<assiette>().assietteVide = true;
 	    				assiette3.GetComponent<assiette>().pain = false;
+	    				assiette3.GetComponent<assiette>().callDisparaitre();
 	    				pain = true;
 	    			}
 
@@ -285,9 +307,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette3.GetComponent<assiette>().assietteVide = true;
 	    				assiette3.GetComponent<assiette>().poulet = false;
+	    				assiette3.GetComponent<assiette>().callDisparaitre();
 	    				poulet = true;
 	    			}
 
@@ -296,9 +320,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette3.GetComponent<assiette>().assietteVide = true;
 	    				assiette3.GetComponent<assiette>().patate = false;
+	    				assiette3.GetComponent<assiette>().callDisparaitre();
 	    				patate = true;
 	    				}
 	    			
@@ -317,9 +343,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette4.GetComponent<assiette>().assietteVide = true;
 	    				assiette4.GetComponent<assiette>().pain = false;
+	    				assiette4.GetComponent<assiette>().callDisparaitre();
 	    				pain = true;
 	    			}
 
@@ -328,9 +356,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette4.GetComponent<assiette>().assietteVide = true;
 	    				assiette4.GetComponent<assiette>().poulet = false;
+	    				assiette4.GetComponent<assiette>().callDisparaitre();
 	    				poulet = true;
 	    			}
 
@@ -339,9 +369,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette4.GetComponent<assiette>().assietteVide = true;
 	    				assiette4.GetComponent<assiette>().patate = false;
+	    				assiette4.GetComponent<assiette>().callDisparaitre();
 	    				patate = true;
 	    				}
 	    			
@@ -360,9 +392,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette5.GetComponent<assiette>().assietteVide = true;
 	    				assiette5.GetComponent<assiette>().pain = false;
+	    				assiette5.GetComponent<assiette>().callDisparaitre();
 	    				pain = true;
 	    			}
 
@@ -371,9 +405,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette5.GetComponent<assiette>().assietteVide = true;
 	    				assiette5.GetComponent<assiette>().poulet = false;
+	    				assiette5.GetComponent<assiette>().callDisparaitre();
 	    				poulet = true;
 	    			}
 
@@ -382,9 +418,11 @@ public class BarMan : MonoBehaviour {
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
+	    				Invoke ("apparaitre", 0.5f);
 	    				mainsLibres = false;
 	    				assiette5.GetComponent<assiette>().assietteVide = true;
 	    				assiette5.GetComponent<assiette>().patate = false;
+	    				assiette5.GetComponent<assiette>().callDisparaitre();
 	    				patate = true;
 	    				}
 	    			
@@ -518,6 +556,8 @@ public class BarMan : MonoBehaviour {
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().fillAmount = 0;
                 pain = false;
                 mainsLibres = true;
+                BarManAnim.SetTrigger("prendre");
+                Invoke ("disparaitre", 0.5f);
                 print("SUCCES");
             }
             else if (infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commande.name == "patate" && patate == true)
@@ -527,6 +567,8 @@ public class BarMan : MonoBehaviour {
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().fillAmount = 0;
                 patate = false;
                 mainsLibres = true;
+                BarManAnim.SetTrigger("prendre");
+                Invoke ("disparaitre", 0.5f);
                 print("SUCCES");
             }
             else if (infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commande.name == "poulet" && poulet == true)
@@ -536,6 +578,8 @@ public class BarMan : MonoBehaviour {
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().fillAmount = 0;
                 poulet = false;
                 mainsLibres = true;
+                BarManAnim.SetTrigger("prendre");
+                Invoke ("disparaitre", 0.5f);
                 print("SUCCES");
             }
             else if (infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commande.name == "vin" && vin == true)
@@ -545,6 +589,8 @@ public class BarMan : MonoBehaviour {
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().fillAmount = 0;
                 vin = false;
                 mainsLibres = true;
+                BarManAnim.SetTrigger("prendre");
+                Invoke ("disparaitre", 0.5f);
                 print("SUCCES");
             }
             else if (infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commande.name == "biere" && bierre == true)
@@ -554,10 +600,41 @@ public class BarMan : MonoBehaviour {
                 infoObject.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>().fillAmount = 0;
                 bierre = false;
                 mainsLibres = true;
+                BarManAnim.SetTrigger("prendre");
+                Invoke ("disparaitre", 0.5f);
                 print("SUCCES");
             }
         }
 
    	}
    	void bouger(){peutBouger = true;}
+
+   	void prendreObjet(){BarManAnim.SetTrigger("prendre");}
+
+    void disparaitre(){
+
+    	if(painObj.activeSelf == true){painObj.SetActive(false);}
+
+    	if(pouletObj.activeSelf == true){pouletObj.SetActive(false);}
+
+    	if(patateObj.activeSelf == true){patateObj.SetActive(false);}
+
+    	if(bouteilleVin.activeSelf == true){bouteilleVin.SetActive(false);}
+
+    	if(MugBierre.activeSelf == true){MugBierre.SetActive(false);}
+
+    }
+
+    void apparaitre(){
+
+    	if(pain == true){painObj.SetActive(true);}
+
+    	if(poulet == true){pouletObj.SetActive(true);}
+
+    	if(patate == true){patateObj.SetActive(true);}
+
+    	if(vin == true){bouteilleVin.SetActive(true);}
+
+    	if(bierre == true){MugBierre.SetActive(true);}
+    }
 }
