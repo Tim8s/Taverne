@@ -12,6 +12,8 @@ public class Cadran : MonoBehaviour {
     public gestionCommande gererCommande;
 
     GameObject papier;
+    public AudioClip sonBuzzer;
+    public AudioSource lecteurSon;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +24,7 @@ public class Cadran : MonoBehaviour {
     {
         papier = gameObject.transform.parent.transform.parent.transform.parent.gameObject;
         gameObject.GetComponent<Image>().color = startColor;
-        StartCoroutine(ColorOverSeconds(image, rouge, 50));
+        StartCoroutine(ColorOverSeconds(image, rouge, 60));
     }
 
     // Update is called once per frame
@@ -51,13 +53,20 @@ public class Cadran : MonoBehaviour {
     }
 
     void DetruireCommande()
-    {
+    {   
+        lecteurSon.PlayOneShot(sonBuzzer, 6f);
         gameObject.GetComponent<Image>().fillAmount = 0;
         gererCommande.supprimeCommande(gameObject.GetComponentInParent<papierScript>().NoCommande, -10);
-        gameObject.transform.parent.gameObject.SetActive(false);
 
         papier.GetComponent<papierScript>().commandeGenerer = false;
         papier.GetComponent<papierScript>().commandePris = false;
         papier.GetComponent<MeshRenderer>().enabled = false;
+
+        Invoke ("Desactive", 1f);
+    }
+
+    void Desactive(){
+
+        gameObject.transform.parent.gameObject.SetActive(false);
     }
 }

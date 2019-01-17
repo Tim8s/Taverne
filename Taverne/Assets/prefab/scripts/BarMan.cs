@@ -45,6 +45,11 @@ public class BarMan : MonoBehaviour {
 
     public gestionCommande gererCommande;
 
+    public AudioClip sonInteraction;
+    public AudioClip sonCloche;
+    public AudioSource lecteurSon;
+    public AudioClip sonCash;
+
     //Use this for initialization
     void Start () {
         
@@ -176,6 +181,7 @@ public class BarMan : MonoBehaviour {
 	    		bierre = false;
 	    		vin = false;
                 gameObject.GetComponent<Rigidbody>().AddForce(transform.up * 10, ForceMode.Impulse);
+                lecteurSon.PlayOneShot(sonInteraction, 1f);
                 
 	    	}
 
@@ -187,6 +193,7 @@ public class BarMan : MonoBehaviour {
 	    		Invoke ("apparaitre", 0.5f);
 	    		mainsLibres = false;
 	    		bierre = true;
+	    		lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 
 	    	if(zoneVin == true && mainsLibres == true){
@@ -197,6 +204,7 @@ public class BarMan : MonoBehaviour {
 	    		Invoke ("apparaitre", 0.5f);
 	    		mainsLibres = false;
 	    		vin = true;
+	    		lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 
 			////////////////////assiette 1//////////////////////////
@@ -215,6 +223,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette1.GetComponent<assiette>().assietteVide = true;
 	    				assiette1.GetComponent<assiette>().pain = false;
 	    				assiette1.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				pain = true;
 	    			}
 
@@ -231,6 +240,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette1.GetComponent<assiette>().assietteVide = true;
 	    				assiette1.GetComponent<assiette>().poulet = false;
 	    				assiette1.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				poulet = true;
 	    			}
 
@@ -244,6 +254,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette1.GetComponent<assiette>().assietteVide = true;
 	    				assiette1.GetComponent<assiette>().patate = false;
 	    				assiette1.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				patate = true;
 	    				}
 	    			
@@ -267,6 +278,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette2.GetComponent<assiette>().assietteVide = true;
 	    				assiette2.GetComponent<assiette>().pain = false;
 	    				assiette2.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				pain = true;
 	    			}
 
@@ -283,6 +295,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette2.GetComponent<assiette>().assietteVide = true;
 	    				assiette2.GetComponent<assiette>().poulet = false;
 	    				assiette2.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				poulet = true;
 	    			}
 
@@ -296,6 +309,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette2.GetComponent<assiette>().assietteVide = true;
 	    				assiette2.GetComponent<assiette>().patate = false;
 	    				assiette2.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				patate = true;
 	    				}
 	    			
@@ -319,6 +333,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette3.GetComponent<assiette>().assietteVide = true;
 	    				assiette3.GetComponent<assiette>().pain = false;
 	    				assiette3.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				pain = true;
 	    			}
 
@@ -335,6 +350,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette3.GetComponent<assiette>().assietteVide = true;
 	    				assiette3.GetComponent<assiette>().poulet = false;
 	    				assiette3.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				poulet = true;
 	    			}
 
@@ -348,6 +364,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette3.GetComponent<assiette>().assietteVide = true;
 	    				assiette3.GetComponent<assiette>().patate = false;
 	    				assiette3.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				patate = true;
 	    				}
 	    			
@@ -371,6 +388,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette4.GetComponent<assiette>().assietteVide = true;
 	    				assiette4.GetComponent<assiette>().pain = false;
 	    				assiette4.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				pain = true;
 	    			}
 
@@ -387,6 +405,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette4.GetComponent<assiette>().assietteVide = true;
 	    				assiette4.GetComponent<assiette>().poulet = false;
 	    				assiette4.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				poulet = true;
 	    			}
 
@@ -400,6 +419,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette4.GetComponent<assiette>().assietteVide = true;
 	    				assiette4.GetComponent<assiette>().patate = false;
 	    				assiette4.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				patate = true;
 	    				}
 	    			
@@ -423,6 +443,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette5.GetComponent<assiette>().assietteVide = true;
 	    				assiette5.GetComponent<assiette>().pain = false;
 	    				assiette5.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				pain = true;
 	    			}
 
@@ -439,6 +460,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette5.GetComponent<assiette>().assietteVide = true;
 	    				assiette5.GetComponent<assiette>().poulet = false;
 	    				assiette5.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				poulet = true;
 	    			}
 
@@ -452,6 +474,7 @@ public class BarMan : MonoBehaviour {
 	    				assiette5.GetComponent<assiette>().assietteVide = true;
 	    				assiette5.GetComponent<assiette>().patate = false;
 	    				assiette5.GetComponent<assiette>().callDisparaitre();
+	    				lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    				patate = true;
 	    				}
 	    			
@@ -580,6 +603,10 @@ public class BarMan : MonoBehaviour {
             }
             infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commandePris = true;
             infoObject.gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+            BarManAnim.SetTrigger("prendre");
+            lecteurSon.PlayOneShot(sonInteraction, 1f);
+            lecteurSon.PlayOneShot(sonCloche, 1f);
+
 
             gererCommande.ajouteArray(infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commande, infoObject.gameObject.transform.GetChild(0));
         }
@@ -593,6 +620,8 @@ public class BarMan : MonoBehaviour {
                 pain = false;
                 mainsLibres = true;
                 BarManAnim.SetTrigger("prendre");
+                lecteurSon.PlayOneShot(sonInteraction, 1f);
+                lecteurSon.PlayOneShot(sonCash, 1f);
                 Invoke ("disparaitre", 0.5f);
                 print("SUCCES");
             }
@@ -604,6 +633,8 @@ public class BarMan : MonoBehaviour {
                 patate = false;
                 mainsLibres = true;
                 BarManAnim.SetTrigger("prendre");
+                lecteurSon.PlayOneShot(sonInteraction, 1f);
+                lecteurSon.PlayOneShot(sonCash, 1f);
                 Invoke ("disparaitre", 0.5f);
                 print("SUCCES");
             }
@@ -615,6 +646,8 @@ public class BarMan : MonoBehaviour {
                 poulet = false;
                 mainsLibres = true;
                 BarManAnim.SetTrigger("prendre");
+                lecteurSon.PlayOneShot(sonInteraction, 1f);
+                lecteurSon.PlayOneShot(sonCash, 1f);
                 Invoke ("disparaitre", 0.5f);
                 print("SUCCES");
             }
@@ -626,6 +659,8 @@ public class BarMan : MonoBehaviour {
                 vin = false;
                 mainsLibres = true;
                 BarManAnim.SetTrigger("prendre");
+                lecteurSon.PlayOneShot(sonInteraction, 1f);
+                lecteurSon.PlayOneShot(sonCash, 1f);
                 Invoke ("disparaitre", 0.5f);
                 print("SUCCES");
             }
@@ -637,6 +672,8 @@ public class BarMan : MonoBehaviour {
                 bierre = false;
                 mainsLibres = true;
                 BarManAnim.SetTrigger("prendre");
+                lecteurSon.PlayOneShot(sonInteraction, 1f);
+                lecteurSon.PlayOneShot(sonCash, 1f);
                 Invoke ("disparaitre", 0.5f);
                 print("SUCCES");
             }

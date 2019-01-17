@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScriptLumiereJour : MonoBehaviour {
 
@@ -19,9 +20,11 @@ public class ScriptLumiereJour : MonoBehaviour {
     public GameObject txt3;
     public GameObject ballounes;
 
-    public Image pancarte;
+    public GameObject pancarte;
 
     public ScriptLumiereAmbiance lumiereAmbiance;
+
+    public gestionCommande gererCommande;
 
     // Use this for initialization
     void Start ()
@@ -33,7 +36,7 @@ public class ScriptLumiereJour : MonoBehaviour {
         endColor = new Color(0, 0, 0, 1);
         angleFin = new Vector3(gameObject.transform.eulerAngles.x, 400, gameObject.transform.eulerAngles.z);
 
-        StartCoroutine(MoveOverSeconds(gameObject, angleFin, 120f));
+        StartCoroutine(MoveOverSeconds(gameObject, angleFin, 400));
         StartCoroutine(ChangeColorOverSeconds(gameObject, secondColor, 30f));
     }
 	
@@ -105,16 +108,22 @@ public class ScriptLumiereJour : MonoBehaviour {
 
     IEnumerator FinPartie()
     {
+        if(gererCommande.score >= 30)
+        {
+            txt1.SetActive(true);
+            txt2.SetActive(true);
+            txt3.SetActive(true);
 
-        txt1.SetActive(true);
-        txt2.SetActive(true);
-        txt3.SetActive(true);
+            pancarte.SetActive(true);
+            ballounes.SetActive(true);
+            objetsVictoire.SetActive(true);
 
-        pancarte.enabled = true;
-        ballounes.SetActive(true);
-        objetsVictoire.SetActive(true);
-
-        StartCoroutine(DetruireBallounes());
+            StartCoroutine(DetruireBallounes());
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
 
         yield return null;
     }

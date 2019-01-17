@@ -49,12 +49,18 @@ public class Cuisinier : MonoBehaviour {
 
 	public gestionCommande genereCommande;
 
+	public AudioClip sonCouperPain;
+	public AudioClip sonFour;
+	public AudioClip sonVaisselle;
+	public AudioClip sonInteraction;
+	public AudioSource lecteurSon;
 
     //Use this for initialization
     void Start () {
         
 	  //va chercher ce qu'on a besoin pour le début
 		cuisinierAnim = GetComponent<Animator>();
+		lecteurSon = GetComponent<AudioSource>();
 
       //va chercher ce qu'on a besoin pour le début
 		cuisinierRigid = GetComponent<Rigidbody>();
@@ -177,14 +183,17 @@ public class Cuisinier : MonoBehaviour {
 	    		pouletCuit = false;
 	    		patateCuit = false;
                 gameObject.GetComponent<Rigidbody>().AddForce(transform.up * 10, ForceMode.Impulse);
+                lecteurSon.PlayOneShot(sonInteraction, 1f);
+
             }
 
-	    	if(zoneLavabo == true && assietteSale == true){
+	    	if(zoneLavabo == true){
 
 	    		assietteSale = false;
 	    		peutBouger = false;
 	    		cuisinierAnim.SetTrigger("laver");
 	    		Invoke ("bouger", 5f);
+	    		lecteurSon.PlayOneShot(sonVaisselle, 1f);
 	    		}
 
 	    	if(zoneCuire == true && mainsLibres == false){
@@ -198,6 +207,9 @@ public class Cuisinier : MonoBehaviour {
 	    			Invoke ("prendreObjet", 1.5f);
 	    			Invoke ("apparaitre", 2.1f);
 	    			Invoke ("bouger", 2.6f);
+	    			lecteurSon.PlayOneShot(sonFour, 1f);
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
+	    			Invoke("arretSon", 3f);
 	    		}
 
 				if (poulet == true && pouletCuit == false) {
@@ -212,6 +224,9 @@ public class Cuisinier : MonoBehaviour {
 						Invoke ("prendreObjet", 1.5f);
 						Invoke ("apparaitre", 2.1f);
 						Invoke ("bouger", 2.6f);
+						lecteurSon.PlayOneShot(sonFour, 1f);
+						lecteurSon.PlayOneShot(sonInteraction, 1f);
+	    				Invoke("arretSon", 3f);
 
 				}
 
@@ -224,6 +239,9 @@ public class Cuisinier : MonoBehaviour {
 	    			Invoke ("prendreObjet", 1.5f);
 	    			Invoke ("apparaitre", 2.1f);
 	    			Invoke ("bouger", 2.6f);
+	    			lecteurSon.PlayOneShot(sonFour, 1f);
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
+	    			Invoke("arretSon", 3f);
 	    		}
 
 	    		}
@@ -236,6 +254,9 @@ public class Cuisinier : MonoBehaviour {
 	    		Invoke ("apparaitre", 0.5f);
 	    		mainsLibres = false;
 	    		pain = true;
+	    		lecteurSon.PlayOneShot(sonCouperPain, 1f);
+	    		lecteurSon.PlayOneShot(sonInteraction, 1f);
+	    		Invoke("arretSon", 1f);
 	    		}
 
 			if(zonePoulet == true && mainsLibres == true){
@@ -248,6 +269,7 @@ public class Cuisinier : MonoBehaviour {
 	    		Invoke ("apparaitre", 0.5f);
 	    		mainsLibres = false;
 	    		poulet = true;
+	    		lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    	}
 
 	    	if(zonePatate == true && mainsLibres == true){
@@ -258,6 +280,7 @@ public class Cuisinier : MonoBehaviour {
 	    		Invoke ("apparaitre", 0.5f);
 	    		mainsLibres = false;
 	    		patate = true;
+	    		lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 
 	    		////////////////////////assiette 1/////////////////////////////////////
@@ -276,6 +299,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette1.GetComponent<assiette>().assietteVide = false;
 	    			assiette1.GetComponent<assiette>().pain = true;
 	    			assiette1.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 
 	    		}
 
@@ -294,6 +318,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette1.GetComponent<assiette>().assietteVide = false;
 	    			assiette1.GetComponent<assiette>().poulet = true;
 	    			assiette1.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 
 	    		if(patateCuit == true){
@@ -308,6 +333,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette1.GetComponent<assiette>().assietteVide = false;
 	    			assiette1.GetComponent<assiette>().patate = true;
 	    			assiette1.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 
 	    	}
@@ -328,6 +354,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette2.GetComponent<assiette>().assietteVide = false;
 	    			assiette2.GetComponent<assiette>().pain = true;
 	    			assiette2.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 
 	    		if(pouletCuit == true){
@@ -345,6 +372,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette2.GetComponent<assiette>().assietteVide = false;
 	    			assiette2.GetComponent<assiette>().poulet = true;
 	    			assiette2.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 
 	    		if(patateCuit == true){
@@ -359,6 +387,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette2.GetComponent<assiette>().assietteVide = false;
 	    			assiette2.GetComponent<assiette>().patate = true;
 	    			assiette2.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 	    	}
 
@@ -378,6 +407,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette3.GetComponent<assiette>().assietteVide = false;
 	    			assiette3.GetComponent<assiette>().pain = true;
 	    			assiette3.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 
 	    		if(pouletCuit == true){
@@ -395,6 +425,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette3.GetComponent<assiette>().assietteVide = false;
 	    			assiette3.GetComponent<assiette>().poulet = true;
 	    			assiette3.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 
 	    		if(patateCuit == true){
@@ -409,6 +440,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette3.GetComponent<assiette>().assietteVide = false;
 	    			assiette3.GetComponent<assiette>().patate = true;
 	    			assiette3.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 	    	}
 
@@ -428,6 +460,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette4.GetComponent<assiette>().assietteVide = false;
 	    			assiette4.GetComponent<assiette>().pain = true;
 	    			assiette4.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 
 	    		if(pouletCuit == true){
@@ -445,6 +478,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette4.GetComponent<assiette>().assietteVide = false;
 	    			assiette4.GetComponent<assiette>().poulet = true;
 	    			assiette4.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 
 	    		if(patateCuit == true){
@@ -459,6 +493,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette4.GetComponent<assiette>().assietteVide = false;
 	    			assiette4.GetComponent<assiette>().patate = true;
 	    			assiette4.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 
 	    	}
@@ -478,6 +513,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette5.GetComponent<assiette>().assietteVide = false;
 	    			assiette5.GetComponent<assiette>().pain = true;
 	    			assiette5.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 
 	    		if(pouletCuit == true){
@@ -495,6 +531,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette5.GetComponent<assiette>().assietteVide = false;
 	    			assiette5.GetComponent<assiette>().poulet = true;
 	    			assiette5.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 
 	    		if(patateCuit == true){
@@ -509,6 +546,7 @@ public class Cuisinier : MonoBehaviour {
 	    			assiette5.GetComponent<assiette>().assietteVide = false;
 	    			assiette5.GetComponent<assiette>().patate = true;
 	    			assiette5.GetComponent<assiette>().callApparaitre();
+	    			lecteurSon.PlayOneShot(sonInteraction, 1f);
 	    		}
 	   
 	    		}
@@ -667,9 +705,14 @@ public class Cuisinier : MonoBehaviour {
 
     }
 
+    void arretSon(){
+    	lecteurSon.Stop();
+    }
+
     void bouger(){peutBouger = true;}
 
-    void prendreObjet(){cuisinierAnim.SetTrigger("prendre");}
+    void prendreObjet(){cuisinierAnim.SetTrigger("prendre");
+						lecteurSon.PlayOneShot(sonInteraction, 1f);}
 
     void disparaitre(){
 

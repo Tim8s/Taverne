@@ -49,7 +49,6 @@ public class gestionCommande : MonoBehaviour {
 
 	public GameObject lumPoule;
 
-
 	// Use this for initialization
 	void Start () {
         //Start la fonction répétante pour générer
@@ -63,7 +62,7 @@ public class gestionCommande : MonoBehaviour {
 		{
 			print ("AYAYAY");
 			//Start la fonction répétante pour générer
-			InvokeRepeating("genereCommande", 3, delaiEntreCommande);
+			InvokeRepeating("genereCommande", 5, delaiEntreCommande);
 			tutoFin = true;
 			isTuto = true;
 		}
