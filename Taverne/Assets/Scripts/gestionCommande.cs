@@ -33,8 +33,9 @@ public class gestionCommande : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //Start la fonction répétante pour générer
-        genereCommandeTuto();
+        //genereCommandeTuto();
 
+        InvokeRepeating("genereCommande", 3, delaiEntreCommande);
     }
 	
 	// Update is called once per frame
@@ -83,9 +84,15 @@ public class gestionCommande : MonoBehaviour {
 			//Fait apparaitre le papier(Renderder)
 			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
 
+            //Fait apparaitre son timer
+            ArrayComptoir[comptoirInt].transform.GetChild(0).GetChild(0).GetChild(1).gameObject.SetActive(true);
+            ArrayComptoir[comptoirInt].transform.GetChild(0).GetChild(0).GetChild(1).GetChild(2).GetComponent<Text>().text = IDCommande + "";
 
-			//*************** Random la chance de pogner un oeuf de pâque *******************************/
-			int chanceOeuf = Random.Range(0,2);
+            NbsCommandeGen++;
+
+
+            //*************** Random la chance de pogner un oeuf de pâque *******************************/
+            int chanceOeuf = Random.Range(0,2);
 			print("L'oeuf est " + chanceOeuf);
 			if(chanceOeuf == 0){
 				print("Oeuf a été pogner");
