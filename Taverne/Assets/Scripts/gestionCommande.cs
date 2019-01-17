@@ -84,14 +84,22 @@ public class gestionCommande : MonoBehaviour {
 			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
 
 
-			//Random la chance de pogner un oeuf de pâque
+			//*************** Random la chance de pogner un oeuf de pâque *******************************/
 			int chanceOeuf = Random.Range(0,2);
 			print("L'oeuf est " + chanceOeuf);
 			if(chanceOeuf == 0){
+				print("Oeuf a été pogner");
+				//Donne la commande au papier
+				//Choisi aleatoirement la commande
 
+				//donne le nom de la commande
+				ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commande = oeufPaque.name;
+				//Donne le numero de la commande
+				ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().NoCommande = IDCommande;
 			}else{
 
 			}//fin if else oeuf
+			//*************** Si on pogne pas un oeuf *******************************/
 
 			//Donne la commande au papier
 			//Choisi aleatoirement la commande

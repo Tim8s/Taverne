@@ -34,6 +34,7 @@ public class BarMan : MonoBehaviour {
     public GameObject assiette3;
     public GameObject assiette4;
     public GameObject assiette5;
+    public bool zonePoubelle;
 
     //Use this for initialization
     void Start () {
@@ -139,6 +140,21 @@ public class BarMan : MonoBehaviour {
 		else{BarManAnim.SetBool("course", false);}//fin du else
 
 		if(Input.GetKeyDown(KeyCode.Keypad0)){
+
+
+			if(zonePoubelle == true && mainsLibres == false){
+
+	    		peutBouger = false;
+	    	    BarManAnim.SetTrigger("prendre");
+	    		Invoke ("bouger", 1f);
+	    		mainsLibres = true;
+	    		pain = false;
+	    		poulet = false;
+	    		patate = false;
+	    		bierre = false;
+	    		vin = false;
+
+	    	}
 
 			if(zoneBierre == true && mainsLibres == true){
 
@@ -466,6 +482,18 @@ public class BarMan : MonoBehaviour {
    		else{
 
    			zoneAssiette5 = false;
+
+   			}
+
+   		if(infoObject.gameObject.tag == "poubelle" && transform.eulerAngles.y == 0){
+
+    		zonePoubelle = true;
+
+   		}
+
+   		else{
+
+   			zonePoubelle = false;
 
    			}
 
