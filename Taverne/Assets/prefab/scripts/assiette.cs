@@ -42,11 +42,15 @@ public class assiette : MonoBehaviour {
 
 			lePain.SetActive (false);
 
-		}else if(poulet == false){
+		}
+
+		if(poulet == false){
 
 				lePoulet.SetActive (false);
 
-		}else if(patate == false){
+		}
+
+		if(patate == false){
 
 				laPatate.SetActive (false);
 

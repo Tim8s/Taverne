@@ -140,7 +140,7 @@ public class BarMan : MonoBehaviour {
 
 		if(Input.GetKeyDown(KeyCode.Keypad0)){
 
-			if(bierre == false && mainsLibres == true){
+			if(zoneBierre == true && mainsLibres == true){
 
 	    		peutBouger = false;
 	    		BarManAnim.SetTrigger("prendre");
@@ -149,7 +149,7 @@ public class BarMan : MonoBehaviour {
 	    		bierre = true;
 	    		}
 
-	    	if(vin == false && mainsLibres == true){
+	    	if(zoneVin == true && mainsLibres == true){
 
 	    		peutBouger = false;
 	    		BarManAnim.SetTrigger("prendre");
