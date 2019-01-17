@@ -30,8 +30,17 @@ public class Cuisinier : MonoBehaviour {
     public bool patate;
     public bool patateCuit;
     //public bool assiette;
-    public bool zoneAssiette;
-    public GameObject assiette;
+    public bool zoneAssiette1;
+    public bool zoneAssiette2;
+    public bool zoneAssiette3;
+    public bool zoneAssiette4;
+    public bool zoneAssiette5;
+    public GameObject assiette1;
+    public GameObject assiette2;
+    public GameObject assiette3;
+    public GameObject assiette4;
+    public GameObject assiette5;
+
 
     //Use this for initialization
     void Start () {
@@ -43,20 +52,7 @@ public class Cuisinier : MonoBehaviour {
 		cuisinierRigid = GetComponent<Rigidbody>();
 		peutBouger = true;
  	 	mainsLibres = true;
-		zoneLavabo = false;
- 	 	zoneCuire = false;
- 	 	zonePain = false;
-		zonePoulet = false;
-		zonePatate = false;
  	 	peutPrendre = true;
-		pain = false;
-		poulet = false;
-		patate = false;
-		//assiette = false;
-		painCuit = false;
-		pouletCuit = false;
-		patateCuit = false;
-
 	}
 	
   //Update is called once per frame
@@ -212,9 +208,14 @@ public class Cuisinier : MonoBehaviour {
 	    		patate = true;
 	    		}
 
-	    	if(zoneAssiette == true && mainsLibres == false){
+	    		////////////////////////assiette 1/////////////////////////////////////
 
-	    		if(painCuit == true && assiette.GetComponent<assiette>().assietteVide == true){
+	    	if(zoneAssiette1 == true && mainsLibres == false && assiette1.GetComponent<assiette>().assietteVide == true){
+
+	    		print("hello");
+	    		if(painCuit == true){
+
+	    			print("sa la passer");
 
 	    			peutBouger = false;
 	    			cuisinierAnim.SetTrigger("prendre");
@@ -222,11 +223,11 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			pain = false;
 	    			painCuit = false;
-	    			assiette.GetComponent<assiette>().assietteVide = false;
-	    			assiette.GetComponent<assiette>().pain = true;
+	    			assiette1.GetComponent<assiette>().assietteVide = false;
+	    			assiette1.GetComponent<assiette>().pain = true;
 	    		}
 
-	    		if(pouletCuit == true && assiette.GetComponent<assiette>().assietteVide == true){
+	    		if(pouletCuit == true){
 
 	    			peutBouger = false;
 	    			cuisinierAnim.SetTrigger("prendre");
@@ -234,11 +235,11 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			poulet = false;
 	    			pouletCuit = false;
-	    			assiette.GetComponent<assiette>().assietteVide = false;
-	    			assiette.GetComponent<assiette>().poulet = true;
+	    			assiette1.GetComponent<assiette>().assietteVide = false;
+	    			assiette1.GetComponent<assiette>().poulet = true;
 	    		}
 
-	    		if(patateCuit == true && assiette.GetComponent<assiette>().assietteVide == true){
+	    		if(patateCuit == true){
 
 	    			peutBouger = false;
 	    			cuisinierAnim.SetTrigger("prendre");
@@ -246,8 +247,173 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			patate = false;
 	    			patateCuit = false;
-	    			assiette.GetComponent<assiette>().assietteVide = false;
-	    			assiette.GetComponent<assiette>().patate = true;
+	    			assiette1.GetComponent<assiette>().assietteVide = false;
+	    			assiette1.GetComponent<assiette>().patate = true;
+	    		}
+
+	    	}
+
+	    		////////////////////////assiette 2/////////////////////////////////////
+
+	    	if(zoneAssiette2 == true && mainsLibres == false && assiette2.GetComponent<assiette>().assietteVide == true){
+
+	    		if(painCuit == true){
+
+	    			peutBouger = false;
+	    			cuisinierAnim.SetTrigger("prendre");
+	    			Invoke ("bouger", 1f);
+	    			mainsLibres = true;
+	    			pain = false;
+	    			painCuit = false;
+	    			assiette2.GetComponent<assiette>().assietteVide = false;
+	    			assiette2.GetComponent<assiette>().pain = true;
+	    		}
+
+	    		if(pouletCuit == true){
+
+	    			peutBouger = false;
+	    			cuisinierAnim.SetTrigger("prendre");
+	    			Invoke ("bouger", 1f);
+	    			mainsLibres = true;
+	    			poulet = false;
+	    			pouletCuit = false;
+	    			assiette2.GetComponent<assiette>().assietteVide = false;
+	    			assiette2.GetComponent<assiette>().poulet = true;
+	    		}
+
+	    		if(patateCuit == true){
+
+	    			peutBouger = false;
+	    			cuisinierAnim.SetTrigger("prendre");
+	    			Invoke ("bouger", 1f);
+	    			mainsLibres = true;
+	    			patate = false;
+	    			patateCuit = false;
+	    			assiette2.GetComponent<assiette>().assietteVide = false;
+	    			assiette2.GetComponent<assiette>().patate = true;
+	    		}
+	    	}
+
+	    		////////////////////////assiette 3/////////////////////////////////////
+
+	    	if(zoneAssiette3 == true && mainsLibres == false && assiette3.GetComponent<assiette>().assietteVide == true){
+
+	    		if(painCuit == true){
+
+	    			peutBouger = false;
+	    			cuisinierAnim.SetTrigger("prendre");
+	    			Invoke ("bouger", 1f);
+	    			mainsLibres = true;
+	    			pain = false;
+	    			painCuit = false;
+	    			assiette3.GetComponent<assiette>().assietteVide = false;
+	    			assiette3.GetComponent<assiette>().pain = true;
+	    		}
+
+	    		if(pouletCuit == true){
+
+	    			peutBouger = false;
+	    			cuisinierAnim.SetTrigger("prendre");
+	    			Invoke ("bouger", 1f);
+	    			mainsLibres = true;
+	    			poulet = false;
+	    			pouletCuit = false;
+	    			assiette3.GetComponent<assiette>().assietteVide = false;
+	    			assiette3.GetComponent<assiette>().poulet = true;
+	    		}
+
+	    		if(patateCuit == true){
+
+	    			peutBouger = false;
+	    			cuisinierAnim.SetTrigger("prendre");
+	    			Invoke ("bouger", 1f);
+	    			mainsLibres = true;
+	    			patate = false;
+	    			patateCuit = false;
+	    			assiette3.GetComponent<assiette>().assietteVide = false;
+	    			assiette3.GetComponent<assiette>().patate = true;
+	    		}
+	    	}
+
+	    		////////////////////////assiette 4/////////////////////////////////////
+
+	    	if(zoneAssiette4 == true && mainsLibres == false && assiette4.GetComponent<assiette>().assietteVide == true){
+
+	    		if(painCuit == true){
+
+	    			peutBouger = false;
+	    			cuisinierAnim.SetTrigger("prendre");
+	    			Invoke ("bouger", 1f);
+	    			mainsLibres = true;
+	    			pain = false;
+	    			painCuit = false;
+	    			assiette4.GetComponent<assiette>().assietteVide = false;
+	    			assiette4.GetComponent<assiette>().pain = true;
+	    		}
+
+	    		if(pouletCuit == true){
+
+	    			peutBouger = false;
+	    			cuisinierAnim.SetTrigger("prendre");
+	    			Invoke ("bouger", 1f);
+	    			mainsLibres = true;
+	    			poulet = false;
+	    			pouletCuit = false;
+	    			assiette4.GetComponent<assiette>().assietteVide = false;
+	    			assiette4.GetComponent<assiette>().poulet = true;
+	    		}
+
+	    		if(patateCuit == true){
+
+	    			peutBouger = false;
+	    			cuisinierAnim.SetTrigger("prendre");
+	    			Invoke ("bouger", 1f);
+	    			mainsLibres = true;
+	    			patate = false;
+	    			patateCuit = false;
+	    			assiette4.GetComponent<assiette>().assietteVide = false;
+	    			assiette4.GetComponent<assiette>().patate = true;
+	    		}
+
+	    	}
+	    		////////////////////////assiette 5/////////////////////////////////////
+
+	    	if(zoneAssiette5 == true && mainsLibres == false && assiette5.GetComponent<assiette>().assietteVide == true){
+
+	    		if(painCuit == true){
+
+	    			peutBouger = false;
+	    			cuisinierAnim.SetTrigger("prendre");
+	    			Invoke ("bouger", 1f);
+	    			mainsLibres = true;
+	    			pain = false;
+	    			painCuit = false;
+	    			assiette5.GetComponent<assiette>().assietteVide = false;
+	    			assiette5.GetComponent<assiette>().pain = true;
+	    		}
+
+	    		if(pouletCuit == true){
+
+	    			peutBouger = false;
+	    			cuisinierAnim.SetTrigger("prendre");
+	    			Invoke ("bouger", 1f);
+	    			mainsLibres = true;
+	    			poulet = false;
+	    			pouletCuit = false;
+	    			assiette5.GetComponent<assiette>().assietteVide = false;
+	    			assiette5.GetComponent<assiette>().poulet = true;
+	    		}
+
+	    		if(patateCuit == true){
+
+	    			peutBouger = false;
+	    			cuisinierAnim.SetTrigger("prendre");
+	    			Invoke ("bouger", 1f);
+	    			mainsLibres = true;
+	    			patate = false;
+	    			patateCuit = false;
+	    			assiette5.GetComponent<assiette>().assietteVide = false;
+	    			assiette5.GetComponent<assiette>().patate = true;
 	    		}
 	   
 	    		}
@@ -327,15 +493,63 @@ public class Cuisinier : MonoBehaviour {
 
    			}
 
-   		if(infoObject.gameObject.tag == "assiette" && transform.eulerAngles.y == 90){
+   		if(infoObject.gameObject.tag == "assiette1" && transform.eulerAngles.y == 90){
 
-    		zoneAssiette = true;
+    		zoneAssiette1 = true;
 
    		}
 
    		else{
 
-   			zoneAssiette = false;
+   			zoneAssiette1 = false;
+
+   			}
+
+   		if(infoObject.gameObject.tag == "assiette2" && transform.eulerAngles.y == 90){
+
+    		zoneAssiette2 = true;
+
+   		}
+
+   		else{
+
+   			zoneAssiette2 = false;
+
+   			}
+
+   		if(infoObject.gameObject.tag == "assiette3" && transform.eulerAngles.y == 90){
+
+    		zoneAssiette3 = true;
+
+   		}
+
+   		else{
+
+   			zoneAssiette3 = false;
+
+   			}
+
+   		if(infoObject.gameObject.tag == "assiette4" && transform.eulerAngles.y == 90){
+
+    		zoneAssiette4 = true;
+
+   		}
+
+   		else{
+
+   			zoneAssiette4 = false;
+
+   			}
+
+   		if(infoObject.gameObject.tag == "assiette5" && transform.eulerAngles.y == 90){
+
+    		zoneAssiette5 = true;
+
+   		}
+
+   		else{
+
+   			zoneAssiette5 = false;
 
    			}
 

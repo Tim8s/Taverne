@@ -6,6 +6,14 @@ TagManager:
   tags:
   - laver
   - cuire
+  - pain
+  - poulet
+  - patate
+  - assiette1
+  - assiette2
+  - assiette3
+  - assiette4
+  - assiette5
   layers:
   - Default
   - TransparentFX
