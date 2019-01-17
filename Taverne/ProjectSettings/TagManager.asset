@@ -14,6 +14,8 @@ TagManager:
   - assiette3
   - assiette4
   - assiette5
+  - bierre
+  - vin
   layers:
   - Default
   - TransparentFX
