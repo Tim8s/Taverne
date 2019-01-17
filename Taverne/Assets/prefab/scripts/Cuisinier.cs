@@ -212,10 +212,7 @@ public class Cuisinier : MonoBehaviour {
 
 	    	if(zoneAssiette1 == true && mainsLibres == false && assiette1.GetComponent<assiette>().assietteVide == true){
 
-	    		print("hello");
 	    		if(painCuit == true){
-
-	    			print("sa la passer");
 
 	    			peutBouger = false;
 	    			cuisinierAnim.SetTrigger("prendre");
