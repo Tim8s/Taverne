@@ -1413,6 +1413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 145899842}
+  gererCommande: {fileID: 2122434603}
 --- !u!114 &145899842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3521,6 +3522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 376893921}
+  gererCommande: {fileID: 2122434603}
 --- !u!114 &376893921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4024,6 +4026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 445124201}
+  gererCommande: {fileID: 2122434603}
 --- !u!114 &445124201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4544,6 +4547,11 @@ Prefab:
       propertyPath: m_TagString
       value: comptoir
       objectReference: {fileID: 0}
+    - target: {fileID: 114667613794075250, guid: b038f2826c2904c4488392505aa3ef73,
+        type: 2}
+      propertyPath: txtScore
+      value: 
+      objectReference: {fileID: 2025637969}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b038f2826c2904c4488392505aa3ef73, type: 2}
   m_IsPrefabAsset: 0
@@ -7228,6 +7236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 691844853}
+  gererCommande: {fileID: 2122434603}
 --- !u!114 &691844853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9089,6 +9098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 945500164}
+  gererCommande: {fileID: 2122434603}
 --- !u!114 &945500164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10193,6 +10203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1023498205}
+  gererCommande: {fileID: 2122434603}
 --- !u!114 &1023498205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10563,6 +10574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1047496554}
+  gererCommande: {fileID: 2122434603}
 --- !u!114 &1047496554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10918,6 +10930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1095240097}
+  gererCommande: {fileID: 2122434603}
 --- !u!114 &1095240097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15120,6 +15133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1553138973}
+  gererCommande: {fileID: 2122434603}
 --- !u!114 &1553138973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21542,6 +21556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1812077233}
+  gererCommande: {fileID: 2122434603}
 --- !u!114 &1812077233
 MonoBehaviour:
   m_ObjectHideFlags: 0
