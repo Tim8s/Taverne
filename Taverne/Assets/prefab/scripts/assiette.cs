@@ -15,48 +15,34 @@ public class assiette : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		pain = false;
-		poulet = false;
-		patate = false;
 		assietteVide = true;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () {}
 
-		if(pain == true){
+	public void callDisparaitre(){Invoke ("disparaitre", 0.5f);}
 
-			lePain.SetActive (true);
+	public void callApparaitre(){Invoke ("apparaitre", 0.5f);}
 
-		}else if(poulet == true){
+	void disparaitre(){
 
-				lePoulet.SetActive (true);
+    	if(pain == false){lePain.SetActive(false);}
 
-		}else if(patate == true){
+    	if(poulet == false){lePoulet.SetActive(false);}
 
-				laPatate.SetActive (true);
+    	if(patate == false){laPatate.SetActive(false);}
 
-		}
+    }
 
-		if(pain == false){
+    void apparaitre(){
 
-			lePain.SetActive (false);
+    	if(pain == true){lePain.SetActive(true);}
 
-		}
+    	if(poulet == true){lePoulet.SetActive(true);}
 
-		if(poulet == false){
-
-				lePoulet.SetActive (false);
-
-		}
-
-		if(patate == false){
-
-				laPatate.SetActive (false);
-
-		}
+    	if(patate == true){laPatate.SetActive(true);}
+    }
 
 
-		
-	}
 }
