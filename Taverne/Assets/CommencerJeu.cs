@@ -34,5 +34,9 @@ public class CommencerJeu : MonoBehaviour {
 		yield return new WaitForSeconds(5);
 		Destroy (camera1);
 		camera.SetActive (true);
+
+        yield return new WaitForSeconds(2.65f);
+
+        SceneManager.LoadScene(1);
 	}
 }

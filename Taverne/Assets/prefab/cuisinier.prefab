@@ -787,6 +787,35 @@ MonoBehaviour:
   vitesseMarche: 20
   vitesseCourse: 15
   forceGravite: -2
+  peutBouger: 0
+  mainsLibres: 0
+  zoneLavabo: 0
+  zoneCuire: 0
+  zonePain: 0
+  zonePoulet: 0
+  zonePatate: 0
+  peutPrendre: 0
+  pain: 0
+  painCuit: 0
+  poulet: 0
+  pouletCuit: 0
+  patate: 0
+  patateCuit: 0
+  zoneAssiette1: 0
+  zoneAssiette2: 0
+  zoneAssiette3: 0
+  zoneAssiette4: 0
+  zoneAssiette5: 0
+  assiette1: {fileID: 0}
+  assiette2: {fileID: 0}
+  assiette3: {fileID: 0}
+  assiette4: {fileID: 0}
+  assiette5: {fileID: 0}
+  zonePoubelle: 0
+  assietteSale: 0
+  painObj: {fileID: 0}
+  pouletObj: {fileID: 0}
+  patateObj: {fileID: 0}
 --- !u!136 &136799720943388738
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -816,6 +845,19 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 4b95a6f37fca67d4dab0640f05b83a7f, type: 2}
+  - {fileID: 2100000, guid: 4b95a6f37fca67d4dab0640f05b83a7f, type: 2}
+  - {fileID: 2100000, guid: 4b95a6f37fca67d4dab0640f05b83a7f, type: 2}
+  - {fileID: 2100000, guid: 4b95a6f37fca67d4dab0640f05b83a7f, type: 2}
+  - {fileID: 2100000, guid: 4b95a6f37fca67d4dab0640f05b83a7f, type: 2}
+  - {fileID: 2100000, guid: 4b95a6f37fca67d4dab0640f05b83a7f, type: 2}
+  - {fileID: 2100000, guid: 4b95a6f37fca67d4dab0640f05b83a7f, type: 2}
+  - {fileID: 2100000, guid: 4b95a6f37fca67d4dab0640f05b83a7f, type: 2}
+  - {fileID: 2100000, guid: 4b95a6f37fca67d4dab0640f05b83a7f, type: 2}
+  - {fileID: 2100000, guid: 4b95a6f37fca67d4dab0640f05b83a7f, type: 2}
+  - {fileID: 2100000, guid: 4b95a6f37fca67d4dab0640f05b83a7f, type: 2}
+  - {fileID: 2100000, guid: 4b95a6f37fca67d4dab0640f05b83a7f, type: 2}
+  - {fileID: 2100000, guid: 4b95a6f37fca67d4dab0640f05b83a7f, type: 2}
+  - {fileID: 2100000, guid: 4b95a6f37fca67d4dab0640f05b83a7f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -839,7 +881,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 04e643a00918e6048b759d023460edc6, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 10edf0a652e0c90448011bf72d92228e, type: 3}
   m_Bones:
   - {fileID: 4352273798008288}
   - {fileID: 4359022746896498}
