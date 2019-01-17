@@ -12,7 +12,7 @@ public class Cadran : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         gameObject.GetComponent<Image>().color = startColor;
-        StartCoroutine(ColorOverSeconds(image, rouge, 5f));
+        StartCoroutine(ColorOverSeconds(image, rouge, 30f));
     }
 	
 	// Update is called once per frame

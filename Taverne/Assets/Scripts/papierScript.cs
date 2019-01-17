@@ -6,7 +6,7 @@ public class papierScript : MonoBehaviour {
 
 	public bool commandeGenerer = false;
 	public bool commandePris = false;
-	public string commande = "";
+    public Sprite commande;
 	public int NoCommande;
 
 	// Use this for initialization

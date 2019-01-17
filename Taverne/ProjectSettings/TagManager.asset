@@ -17,6 +17,7 @@ TagManager:
   - bierre
   - vin
   - poubelle
+  - comptoir
   layers:
   - Default
   - TransparentFX
