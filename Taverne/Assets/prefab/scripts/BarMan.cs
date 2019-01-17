@@ -41,6 +41,7 @@ public class BarMan : MonoBehaviour {
     public GameObject patateObj;
     public GameObject bouteilleVin;
     public GameObject MugBierre;
+    public bool peutSauter;
 
     public gestionCommande gererCommande;
 
@@ -55,6 +56,7 @@ public class BarMan : MonoBehaviour {
 
 		peutBouger = true;
  	 	mainsLibres = true;
+ 	 	peutSauter = true;
 
 	}
 	
@@ -138,6 +140,14 @@ public class BarMan : MonoBehaviour {
 
 		}
 
+		if(Input.GetKeyDown(KeyCode.KeypadEnter) && peutSauter == true){
+
+	    		BarManAnim.SetTrigger("saute");
+	    		Invoke ("sauter", 0.3f);
+	    		Invoke ("reSaute", 1.5f);
+	    		peutSauter = false;
+	    	}
+
 		//si cette touche est maintenu, le perso va courrir
 		if (Input.GetKey(KeyCode.Keypad0) && BarManAnim.GetBool("marche") == true /* || Input.GetAxis("LT") != 0*/){
 
@@ -150,8 +160,11 @@ public class BarMan : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.KeypadPeriod)){
 
 
-			if(zonePoubelle == true && mainsLibres == false){
-
+			if(zonePoubelle == true && mainsLibres == false && peutSauter == true){
+					if (gererCommande.tutoFin == false) {
+						gererCommande.txtTuto5.SetActive (false);
+						gererCommande.txtTuto6.SetActive (true);
+					}
 	    		peutBouger = false;
 	    	    BarManAnim.SetTrigger("prendre");
 	    		Invoke ("bouger", 1f);
@@ -205,7 +218,10 @@ public class BarMan : MonoBehaviour {
 	    			}
 
 	    			if(assiette1.GetComponent<assiette>().poulet == true){
-
+							if (gererCommande.tutoFin == false) {
+								gererCommande.txtTuto4.SetActive (false);
+								gererCommande.txtTuto5.SetActive (true);
+							}
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
@@ -254,7 +270,10 @@ public class BarMan : MonoBehaviour {
 	    			}
 
 	    			if(assiette2.GetComponent<assiette>().poulet == true){
-
+							if (gererCommande.tutoFin == false) {
+								gererCommande.txtTuto4.SetActive (false);
+								gererCommande.txtTuto5.SetActive (true);
+							}
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
@@ -303,7 +322,10 @@ public class BarMan : MonoBehaviour {
 	    			}
 
 	    			if(assiette3.GetComponent<assiette>().poulet == true){
-
+							if (gererCommande.tutoFin == false) {
+								gererCommande.txtTuto4.SetActive (false);
+								gererCommande.txtTuto5.SetActive (true);
+							}
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
@@ -352,7 +374,10 @@ public class BarMan : MonoBehaviour {
 	    			}
 
 	    			if(assiette4.GetComponent<assiette>().poulet == true){
-
+							if (gererCommande.tutoFin == false) {
+								gererCommande.txtTuto4.SetActive (false);
+								gererCommande.txtTuto5.SetActive (true);
+							}
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
@@ -401,7 +426,10 @@ public class BarMan : MonoBehaviour {
 	    			}
 
 	    			if(assiette5.GetComponent<assiette>().poulet == true){
-
+							if (gererCommande.tutoFin == false) {
+								gererCommande.txtTuto4.SetActive (false);
+								gererCommande.txtTuto5.SetActive (true);
+							}
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
@@ -539,9 +567,14 @@ public class BarMan : MonoBehaviour {
    			zonePoubelle = false;
 
    			}
-
-        if (infoObject.gameObject.tag == "comptoir" && infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commandeGenerer == true && infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commandePris == false && Input.GetKeyDown(KeyCode.KeypadPeriod))
+			
+		if (infoObject.gameObject.tag == "comptoir" && infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commandeGenerer == true && infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commandePris == false && Input.GetKeyDown(KeyCode.KeypadPeriod))
         {
+			if (gererCommande.tutoFin == false) {
+				gererCommande.txtTuto1.SetActive(false);
+				gererCommande.txtTuto2.SetActive(true);
+				gererCommande.lumPoule.SetActive (true);
+			}
             infoObject.gameObject.transform.GetChild(0).GetComponent<papierScript>().commandePris = true;
             infoObject.gameObject.transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
 
@@ -637,4 +670,9 @@ public class BarMan : MonoBehaviour {
 
     	if(bierre == true){MugBierre.SetActive(true);}
     }
+
+    void sauter(){BarManRigid.AddRelativeForce(0, 9, 0, ForceMode.Impulse);}
+
+    void reSaute(){peutSauter = true;}
+
 }

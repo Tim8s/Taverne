@@ -45,7 +45,9 @@ public class Cuisinier : MonoBehaviour {
     public GameObject painObj;
     public GameObject pouletObj;
     public GameObject patateObj;
+    public bool peutSauter;
 
+	public gestionCommande genereCommande;
 
 
     //Use this for initialization
@@ -59,6 +61,7 @@ public class Cuisinier : MonoBehaviour {
 		peutBouger = true;
  	 	mainsLibres = true;
  	 	peutPrendre = true;
+ 	 	peutSauter = true;
 	}
 	
   //Update is called once per frame
@@ -150,9 +153,17 @@ public class Cuisinier : MonoBehaviour {
 	  //sinon il arrêtte de courrir
 		else{cuisinierAnim.SetBool("course", false);}//fin du else
 
+		if(Input.GetKeyDown("q") && peutSauter == true){
+
+	    		cuisinierAnim.SetTrigger("saute");
+	    		Invoke ("sauter", 0.3f);
+	    		Invoke ("reSaute", 1.5f);
+	    		peutSauter = false;
+	    	}
+
 	    if(Input.GetKeyDown("e")){
 
-	    	if(zonePoubelle == true && mainsLibres == false){
+	    	if(zonePoubelle == true && mainsLibres == false && peutSauter == false){
 
 	    		peutBouger = false;
 	    	    cuisinierAnim.SetTrigger("prendre");
@@ -189,17 +200,20 @@ public class Cuisinier : MonoBehaviour {
 	    			Invoke ("bouger", 2.6f);
 	    		}
 
-	    		if(poulet == true && pouletCuit == false){
+				if (poulet == true && pouletCuit == false) {
+						if (genereCommande.tutoFin == false) {
+							genereCommande.txtTuto2.SetActive (false);
+							genereCommande.txtTuto3.SetActive (true);
+						}
+						pouletCuit = true;
+						peutBouger = false;
+						cuisinierAnim.SetTrigger ("prendre");
+						Invoke ("disparaitre", 0.5f);
+						Invoke ("prendreObjet", 1.5f);
+						Invoke ("apparaitre", 2.1f);
+						Invoke ("bouger", 2.6f);
 
-	    			pouletCuit = true;
-	    			peutBouger = false;
-	    			cuisinierAnim.SetTrigger("prendre");
-	    			Invoke ("disparaitre", 0.5f);
-	    			Invoke ("prendreObjet", 1.5f);
-	    			Invoke ("apparaitre", 2.1f);
-	    			Invoke ("bouger", 2.6f);
-
-	    		}
+				}
 
 	    		if(patate == true && patateCuit == false){
 
@@ -224,15 +238,17 @@ public class Cuisinier : MonoBehaviour {
 	    		pain = true;
 	    		}
 
-	    	if(zonePoulet == true && mainsLibres == true){
-
+			if(zonePoulet == true && mainsLibres == true){
+					if (genereCommande.tutoFin == false) {
+						genereCommande.lumPoule.SetActive (false);
+					}
 	    		peutBouger = false;
 	    		cuisinierAnim.SetTrigger("prendre");
 	    		Invoke ("bouger", 1f);
 	    		Invoke ("apparaitre", 0.5f);
 	    		mainsLibres = false;
 	    		poulet = true;
-	    		}
+	    	}
 
 	    	if(zonePatate == true && mainsLibres == true){
 
@@ -264,7 +280,10 @@ public class Cuisinier : MonoBehaviour {
 	    		}
 
 	    		if(pouletCuit == true){
-
+						if (genereCommande.tutoFin == false) {
+							genereCommande.txtTuto3.SetActive (false);
+							genereCommande.txtTuto4.SetActive (true);
+						}
 	    			peutBouger = false;
 	    			cuisinierAnim.SetTrigger("prendre");
 	    			Invoke ("bouger", 1f);
@@ -312,7 +331,10 @@ public class Cuisinier : MonoBehaviour {
 	    		}
 
 	    		if(pouletCuit == true){
-
+						if (genereCommande.tutoFin == false) {
+							genereCommande.txtTuto3.SetActive (false);
+							genereCommande.txtTuto4.SetActive (true);
+						}
 	    			peutBouger = false;
 	    			cuisinierAnim.SetTrigger("prendre");
 	    			Invoke ("bouger", 1f);
@@ -359,7 +381,10 @@ public class Cuisinier : MonoBehaviour {
 	    		}
 
 	    		if(pouletCuit == true){
-
+						if (genereCommande.tutoFin == false) {
+							genereCommande.txtTuto3.SetActive (false);
+							genereCommande.txtTuto4.SetActive (true);
+						}
 	    			peutBouger = false;
 	    			cuisinierAnim.SetTrigger("prendre");
 	    			Invoke ("bouger", 1f);
@@ -406,7 +431,10 @@ public class Cuisinier : MonoBehaviour {
 	    		}
 
 	    		if(pouletCuit == true){
-
+						if (genereCommande.tutoFin == false) {
+							genereCommande.txtTuto3.SetActive (false);
+							genereCommande.txtTuto4.SetActive (true);
+						}
 	    			peutBouger = false;
 	    			cuisinierAnim.SetTrigger("prendre");
 	    			Invoke ("bouger", 1f);
@@ -453,7 +481,10 @@ public class Cuisinier : MonoBehaviour {
 	    		}
 
 	    		if(pouletCuit == true){
-
+						if (genereCommande.tutoFin == false) {
+							genereCommande.txtTuto3.SetActive (false);
+							genereCommande.txtTuto4.SetActive (true);
+						}
 	    			peutBouger = false;
 	    			cuisinierAnim.SetTrigger("prendre");
 	    			Invoke ("bouger", 1f);
@@ -658,5 +689,9 @@ public class Cuisinier : MonoBehaviour {
 
     	if(patate == true){patateObj.SetActive(true);}
     }
+
+    void sauter(){cuisinierRigid.AddRelativeForce(0, 9, 0, ForceMode.Impulse);}
+
+    void reSaute(){peutSauter = true;}
 
 }

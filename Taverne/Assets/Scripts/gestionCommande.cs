@@ -17,7 +17,8 @@ public class gestionCommande : MonoBehaviour {
 	public int IDCommande;
 
 	//Si le tuto est terminer
-	public bool tutoFin;
+	public bool tutoFin = false;
+	public bool isTuto = true;
 
 	//Tableaux des sprites des boissons et nourriture
 	public Sprite[] ArrayMenu;
@@ -38,23 +39,33 @@ public class gestionCommande : MonoBehaviour {
     public Image fillScore;
     public Image fondScore;
 
+	public GameObject txtTuto1;
+	public GameObject txtTuto2;
+	public GameObject txtTuto3;
+	public GameObject txtTuto4;
+	public GameObject txtTuto5;
+	public GameObject txtTuto6;
+	public GameObject txtTuto7;
+
+	public GameObject lumPoule;
+
 
 	// Use this for initialization
 	void Start () {
         //Start la fonction répétante pour générer
-        //genereCommandeTuto();
-
-        InvokeRepeating("genereCommande", 3, delaiEntreCommande);
+        genereCommandeTuto();
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-		if(tutoFin == true)
+		if(isTuto == false)
 		{
+			print ("AYAYAY");
 			//Start la fonction répétante pour générer
 			InvokeRepeating("genereCommande", 3, delaiEntreCommande);
-			tutoFin = false;
+			tutoFin = true;
+			isTuto = true;
 		}
 
 		/*if(Input.GetKeyUp("s"))
@@ -146,7 +157,7 @@ public class gestionCommande : MonoBehaviour {
 			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
 
 			//Donne la commande au papier
-			//Choisi aleatoirement la commande
+			//Choisi aleatoirement la commande POULET
 			var commandeSprite = ArrayMenu[1];
 			//donne le nom de la commande
 			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().commande = commandeSprite;
@@ -154,7 +165,6 @@ public class gestionCommande : MonoBehaviour {
 			ArrayComptoir[comptoirInt].transform.GetChild(0).GetComponent<papierScript>().NoCommande = IDCommande;
 
 		//Mets la commande sur un comptoir aléatoirement
-		//ajouteArray(commande);
 
 	}//fin fonction
 
