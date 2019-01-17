@@ -17,11 +17,23 @@ public class BarMan : MonoBehaviour {
     public float forceGravite;
     public bool peutBouger;
     public bool mainsLibres;
+    public bool bierre;
+    public bool vin;
     public bool pain;
     public bool poulet;
     public bool patate;
-    public bool zoneAssiette;
-    public GameObject assiette;
+    public bool zoneBierre;
+    public bool zoneVin;
+    public bool zoneAssiette1;
+    public bool zoneAssiette2;
+    public bool zoneAssiette3;
+    public bool zoneAssiette4;
+    public bool zoneAssiette5;
+    public GameObject assiette1;
+    public GameObject assiette2;
+    public GameObject assiette3;
+    public GameObject assiette4;
+    public GameObject assiette5;
 
     //Use this for initialization
     void Start () {
@@ -34,9 +46,6 @@ public class BarMan : MonoBehaviour {
 
 		peutBouger = true;
  	 	mainsLibres = true;
-		pain = false;
-		poulet = false;
-		patate = false;
 
 	}
 	
@@ -131,46 +140,238 @@ public class BarMan : MonoBehaviour {
 
 		if(Input.GetKeyDown(KeyCode.Keypad0)){
 
-	    	if(zoneAssiette == true && mainsLibres == true){
+			if(zoneBierre == true && mainsLibres == true){
 
-	    		if(assiette.GetComponent<assiette>().assietteVide == false){
+	    		peutBouger = false;
+	    		BarManAnim.SetTrigger("prendre");
+	    		Invoke ("bouger", 1f);
+	    		mainsLibres = false;
+	    		bierre = true;
+	    		}
 
-	    			if(assiette.GetComponent<assiette>().pain == true){
+	    	if(zoneVin == true && mainsLibres == true){
+
+	    		peutBouger = false;
+	    		BarManAnim.SetTrigger("prendre");
+	    		Invoke ("bouger", 1f);
+	    		mainsLibres = false;
+	    		vin = true;
+	    		}
+
+			////////////////////assiette 1//////////////////////////
+
+	    	if(zoneAssiette1 == true && mainsLibres == true){
+
+	    		if(assiette1.GetComponent<assiette>().assietteVide == false){
+
+	    			if(assiette1.GetComponent<assiette>().pain == true){
 
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
 	    				mainsLibres = false;
-	    				assiette.GetComponent<assiette>().assietteVide = true;
-	    				assiette.GetComponent<assiette>().pain = false;
+	    				assiette1.GetComponent<assiette>().assietteVide = true;
+	    				assiette1.GetComponent<assiette>().pain = false;
 	    				pain = true;
 	    			}
 
-	    			if(assiette.GetComponent<assiette>().poulet == true){
+	    			if(assiette1.GetComponent<assiette>().poulet == true){
 
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
 	    				mainsLibres = false;
-	    				assiette.GetComponent<assiette>().assietteVide = true;
-	    				assiette.GetComponent<assiette>().poulet = false;
+	    				assiette1.GetComponent<assiette>().assietteVide = true;
+	    				assiette1.GetComponent<assiette>().poulet = false;
 	    				poulet = true;
 	    			}
 
-	    			if(assiette.GetComponent<assiette>().patate == true){
+	    			if(assiette1.GetComponent<assiette>().patate == true){
 
 	    				peutBouger = false;
 	    				BarManAnim.SetTrigger("prendre");
 	    				Invoke ("bouger", 1f);
 	    				mainsLibres = false;
-	    				assiette.GetComponent<assiette>().assietteVide = true;
-	    				assiette.GetComponent<assiette>().patate = false;
+	    				assiette1.GetComponent<assiette>().assietteVide = true;
+	    				assiette1.GetComponent<assiette>().patate = false;
 	    				patate = true;
 	    				}
 	    			
 	    			}
 
 	    		}
+
+	    		////////////////////assiette 2//////////////////////////
+
+	    	if(zoneAssiette2 == true && mainsLibres == true){
+
+	    		if(assiette2.GetComponent<assiette>().assietteVide == false){
+
+	    			if(assiette2.GetComponent<assiette>().pain == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette2.GetComponent<assiette>().assietteVide = true;
+	    				assiette2.GetComponent<assiette>().pain = false;
+	    				pain = true;
+	    			}
+
+	    			if(assiette2.GetComponent<assiette>().poulet == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette2.GetComponent<assiette>().assietteVide = true;
+	    				assiette2.GetComponent<assiette>().poulet = false;
+	    				poulet = true;
+	    			}
+
+	    			if(assiette2.GetComponent<assiette>().patate == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette2.GetComponent<assiette>().assietteVide = true;
+	    				assiette2.GetComponent<assiette>().patate = false;
+	    				patate = true;
+	    				}
+	    			
+	    			}
+
+	    		}
+
+	    		////////////////////assiette 3//////////////////////////
+
+	    	if(zoneAssiette3 == true && mainsLibres == true){
+
+	    		if(assiette3.GetComponent<assiette>().assietteVide == false){
+
+	    			if(assiette3.GetComponent<assiette>().pain == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette3.GetComponent<assiette>().assietteVide = true;
+	    				assiette3.GetComponent<assiette>().pain = false;
+	    				pain = true;
+	    			}
+
+	    			if(assiette3.GetComponent<assiette>().poulet == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette3.GetComponent<assiette>().assietteVide = true;
+	    				assiette3.GetComponent<assiette>().poulet = false;
+	    				poulet = true;
+	    			}
+
+	    			if(assiette3.GetComponent<assiette>().patate == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette3.GetComponent<assiette>().assietteVide = true;
+	    				assiette3.GetComponent<assiette>().patate = false;
+	    				patate = true;
+	    				}
+	    			
+	    			}
+
+	    		}
+
+	    		////////////////////assiette 4//////////////////////////
+
+	    	if(zoneAssiette4 == true && mainsLibres == true){
+
+	    		if(assiette4.GetComponent<assiette>().assietteVide == false){
+
+	    			if(assiette4.GetComponent<assiette>().pain == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette4.GetComponent<assiette>().assietteVide = true;
+	    				assiette4.GetComponent<assiette>().pain = false;
+	    				pain = true;
+	    			}
+
+	    			if(assiette4.GetComponent<assiette>().poulet == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette4.GetComponent<assiette>().assietteVide = true;
+	    				assiette4.GetComponent<assiette>().poulet = false;
+	    				poulet = true;
+	    			}
+
+	    			if(assiette4.GetComponent<assiette>().patate == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette4.GetComponent<assiette>().assietteVide = true;
+	    				assiette4.GetComponent<assiette>().patate = false;
+	    				patate = true;
+	    				}
+	    			
+	    			}
+
+	    		}
+
+	    		////////////////////assiette 5//////////////////////////
+
+	    	if(zoneAssiette5 == true && mainsLibres == true){
+
+	    		if(assiette5.GetComponent<assiette>().assietteVide == false){
+
+	    			if(assiette5.GetComponent<assiette>().pain == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette5.GetComponent<assiette>().assietteVide = true;
+	    				assiette5.GetComponent<assiette>().pain = false;
+	    				pain = true;
+	    			}
+
+	    			if(assiette5.GetComponent<assiette>().poulet == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette5.GetComponent<assiette>().assietteVide = true;
+	    				assiette5.GetComponent<assiette>().poulet = false;
+	    				poulet = true;
+	    			}
+
+	    			if(assiette5.GetComponent<assiette>().patate == true){
+
+	    				peutBouger = false;
+	    				BarManAnim.SetTrigger("prendre");
+	    				Invoke ("bouger", 1f);
+	    				mainsLibres = false;
+	    				assiette5.GetComponent<assiette>().assietteVide = true;
+	    				assiette5.GetComponent<assiette>().patate = false;
+	    				patate = true;
+	    				}
+	    			
+	    			}
+
+	    		}	
 
 			}
 
@@ -183,18 +384,90 @@ public class BarMan : MonoBehaviour {
     void OnTriggerEnter(Collider infoObject){}
 
     void OnTriggerStay(Collider infoObject){
-   
-   		 if(infoObject.gameObject.tag == "assiette" && transform.eulerAngles.y == 270){
 
-    		zoneAssiette = true;
+    	if(infoObject.gameObject.tag == "bierre" && transform.eulerAngles.y == 0){
+
+    		zoneBierre = true;
+
+   		}
+
+   		else{
+
+   			zoneBierre = false;
 
    			}
 
-   			else{
+   		if(infoObject.gameObject.tag == "vin" && transform.eulerAngles.y == 0){
 
-   				 zoneAssiette = false;
+    		zoneVin = true;
 
-   				}
+   		}
+
+   		else{
+
+   			zoneVin = false;
+
+   			}
+   
+   		 if(infoObject.gameObject.tag == "assiette1" && transform.eulerAngles.y == 270){
+
+    		zoneAssiette1 = true;
+
+   		}
+
+   		else{
+
+   			zoneAssiette1 = false;
+
+   			}
+
+   		if(infoObject.gameObject.tag == "assiette2" && transform.eulerAngles.y == 270){
+
+    		zoneAssiette2 = true;
+
+   		}
+
+   		else{
+
+   			zoneAssiette2 = false;
+
+   			}
+
+   		if(infoObject.gameObject.tag == "assiette3" && transform.eulerAngles.y == 270){
+
+    		zoneAssiette3 = true;
+
+   		}
+
+   		else{
+
+   			zoneAssiette3 = false;
+
+   			}
+
+   		if(infoObject.gameObject.tag == "assiette4" && transform.eulerAngles.y == 270){
+
+    		zoneAssiette4 = true;
+
+   		}
+
+   		else{
+
+   			zoneAssiette4 = false;
+
+   			}
+
+   		if(infoObject.gameObject.tag == "assiette5" && transform.eulerAngles.y == 270){
+
+    		zoneAssiette5 = true;
+
+   		}
+
+   		else{
+
+   			zoneAssiette5 = false;
+
+   			}
 
    		}
    	void bouger(){peutBouger = true;}

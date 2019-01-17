@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class papierScript : MonoBehaviour {
 
-	public bool commandeEnAttente = false;
+	public bool commandeGenerer = false;
 	public bool commandePris = false;
 	public string commande = "";
 	public int NoCommande;
