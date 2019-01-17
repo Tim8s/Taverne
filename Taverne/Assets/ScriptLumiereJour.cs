@@ -64,7 +64,6 @@ public class ScriptLumiereJour : MonoBehaviour {
         Color startColor = objectToChange.GetComponent<Light>().color;
         while (elapsedTime < seconds)
         {
-            print(elapsedTime);
             objectToChange.GetComponent<Light>().color = Color.Lerp(startColor, yellow, (elapsedTime / seconds));
             
             elapsedTime += Time.deltaTime;
@@ -80,7 +79,6 @@ public class ScriptLumiereJour : MonoBehaviour {
         Color startColor = objectToChange.GetComponent<Light>().color;
         while (elapsedTime < seconds)
         {
-            print("SECOND");
             objectToChange.GetComponent<Light>().color = Color.Lerp(startColor, orange, (elapsedTime / seconds));
 
             elapsedTime += Time.deltaTime;
@@ -96,7 +94,6 @@ public class ScriptLumiereJour : MonoBehaviour {
         Color startColor = objectToChange.GetComponent<Light>().color;
         while (elapsedTime < seconds)
         {
-            print("THIRD");
             objectToChange.GetComponent<Light>().color = Color.Lerp(startColor, black, (elapsedTime / seconds));
 
             elapsedTime += Time.deltaTime;
