@@ -42,6 +42,10 @@ public class Cuisinier : MonoBehaviour {
     public GameObject assiette5;
     public bool zonePoubelle;
     public bool assietteSale;
+    public GameObject painObj;
+    public GameObject pouletObj;
+    public GameObject patateObj;
+
 
 
     //Use this for initialization
@@ -175,10 +179,11 @@ public class Cuisinier : MonoBehaviour {
 
 	    		if(pain == true && painCuit == false){
 
-	    			painCuit = true;
 	    			peutBouger = false;
 	    			cuisinierAnim.SetTrigger("prendre");
-	    			Invoke ("bouger", 1f);
+	    			Invoke ("cuire", 0.5f);
+	    			Invoke ("apparaitre", 2.5f);
+	    			Invoke ("bouger", 3f);
 	    		}
 
 	    		if(poulet == true && pouletCuit == false){
@@ -206,6 +211,7 @@ public class Cuisinier : MonoBehaviour {
 	    		Invoke ("bouger", 1f);
 	    		mainsLibres = false;
 	    		pain = true;
+	    		painObj.SetActive(true);
 	    		}
 
 	    	if(zonePoulet == true && mainsLibres == true){
@@ -215,6 +221,7 @@ public class Cuisinier : MonoBehaviour {
 	    		Invoke ("bouger", 1f);
 	    		mainsLibres = false;
 	    		poulet = true;
+	    		pouletObj.SetActive(true);
 	    		}
 
 	    	if(zonePatate == true && mainsLibres == true){
@@ -224,6 +231,7 @@ public class Cuisinier : MonoBehaviour {
 	    		Invoke ("bouger", 1f);
 	    		mainsLibres = false;
 	    		patate = true;
+	    		patateObj.SetActive(true);
 	    		}
 
 	    		////////////////////////assiette 1/////////////////////////////////////
@@ -238,6 +246,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			pain = false;
 	    			painCuit = false;
+	    			painObj.SetActive(false);
 	    			assiette1.GetComponent<assiette>().assietteVide = false;
 	    			assiette1.GetComponent<assiette>().pain = true;
 	    		}
@@ -250,6 +259,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			poulet = false;
 	    			pouletCuit = false;
+	    			pouletObj.SetActive(false);
 	    			assiette1.GetComponent<assiette>().assietteVide = false;
 	    			assiette1.GetComponent<assiette>().poulet = true;
 	    		}
@@ -262,6 +272,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			patate = false;
 	    			patateCuit = false;
+	    			patateObj.SetActive(false);
 	    			assiette1.GetComponent<assiette>().assietteVide = false;
 	    			assiette1.GetComponent<assiette>().patate = true;
 	    		}
@@ -280,6 +291,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			pain = false;
 	    			painCuit = false;
+	    			painObj.SetActive(false);
 	    			assiette2.GetComponent<assiette>().assietteVide = false;
 	    			assiette2.GetComponent<assiette>().pain = true;
 	    		}
@@ -292,6 +304,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			poulet = false;
 	    			pouletCuit = false;
+	    			pouletObj.SetActive(false);
 	    			assiette2.GetComponent<assiette>().assietteVide = false;
 	    			assiette2.GetComponent<assiette>().poulet = true;
 	    		}
@@ -304,6 +317,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			patate = false;
 	    			patateCuit = false;
+	    			patateObj.SetActive(false);
 	    			assiette2.GetComponent<assiette>().assietteVide = false;
 	    			assiette2.GetComponent<assiette>().patate = true;
 	    		}
@@ -321,6 +335,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			pain = false;
 	    			painCuit = false;
+	    			painObj.SetActive(false);
 	    			assiette3.GetComponent<assiette>().assietteVide = false;
 	    			assiette3.GetComponent<assiette>().pain = true;
 	    		}
@@ -333,6 +348,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			poulet = false;
 	    			pouletCuit = false;
+	    			pouletObj.SetActive(false);
 	    			assiette3.GetComponent<assiette>().assietteVide = false;
 	    			assiette3.GetComponent<assiette>().poulet = true;
 	    		}
@@ -345,6 +361,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			patate = false;
 	    			patateCuit = false;
+	    			patateObj.SetActive(false);
 	    			assiette3.GetComponent<assiette>().assietteVide = false;
 	    			assiette3.GetComponent<assiette>().patate = true;
 	    		}
@@ -362,6 +379,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			pain = false;
 	    			painCuit = false;
+	    			painObj.SetActive(false);
 	    			assiette4.GetComponent<assiette>().assietteVide = false;
 	    			assiette4.GetComponent<assiette>().pain = true;
 	    		}
@@ -374,6 +392,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			poulet = false;
 	    			pouletCuit = false;
+	    			pouletObj.SetActive(false);
 	    			assiette4.GetComponent<assiette>().assietteVide = false;
 	    			assiette4.GetComponent<assiette>().poulet = true;
 	    		}
@@ -386,6 +405,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			patate = false;
 	    			patateCuit = false;
+	    			patateObj.SetActive(false);
 	    			assiette4.GetComponent<assiette>().assietteVide = false;
 	    			assiette4.GetComponent<assiette>().patate = true;
 	    		}
@@ -403,6 +423,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			pain = false;
 	    			painCuit = false;
+	    			painObj.SetActive(false);
 	    			assiette5.GetComponent<assiette>().assietteVide = false;
 	    			assiette5.GetComponent<assiette>().pain = true;
 	    		}
@@ -415,6 +436,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			poulet = false;
 	    			pouletCuit = false;
+	    			pouletObj.SetActive(false);
 	    			assiette5.GetComponent<assiette>().assietteVide = false;
 	    			assiette5.GetComponent<assiette>().poulet = true;
 	    		}
@@ -427,6 +449,7 @@ public class Cuisinier : MonoBehaviour {
 	    			mainsLibres = true;
 	    			patate = false;
 	    			patateCuit = false;
+	    			patateObj.SetActive(false);
 	    			assiette5.GetComponent<assiette>().assietteVide = false;
 	    			assiette5.GetComponent<assiette>().patate = true;
 	    		}
@@ -588,5 +611,31 @@ public class Cuisinier : MonoBehaviour {
     }
 
     void bouger(){peutBouger = true;}
+
+    void cuire(){
+
+    	if(pain = true){painObj.SetActive(false);}
+
+    	if(poulet = true){pouletObj.SetActive(false);}
+
+    	if(patate = true){patateObj.SetActive(false);}
+
+    	Invoke ("prendreObjet", 1.5f);
+
+    }
+
+    void prendreObjet(){cuisinierAnim.SetTrigger("prendre");}
+
+    void apparaitre(){
+
+    	if(pain == true){painCuit = true;
+    					 painObj.SetActive(true);}
+
+    	if(poulet == true){pouletCuit = true;
+    					   pouletObj.SetActive(true);}
+
+    	if(patate == true){patateCuit = true;
+    					   patateObj.SetActive(true);}
+    }
 
 }
