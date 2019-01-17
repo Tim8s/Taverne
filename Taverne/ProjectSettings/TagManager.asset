@@ -16,6 +16,7 @@ TagManager:
   - assiette5
   - bierre
   - vin
+  - poubelle
   layers:
   - Default
   - TransparentFX

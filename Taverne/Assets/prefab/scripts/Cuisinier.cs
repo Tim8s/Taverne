@@ -40,6 +40,8 @@ public class Cuisinier : MonoBehaviour {
     public GameObject assiette3;
     public GameObject assiette4;
     public GameObject assiette5;
+    public bool zonePoubelle;
+    public bool assietteSale;
 
 
     //Use this for initialization
@@ -146,8 +148,24 @@ public class Cuisinier : MonoBehaviour {
 
 	    if(Input.GetKeyDown("e")){
 
-	    	if(zoneLavabo == true /*&& assiette == true*/){
+	    	if(zonePoubelle == true && mainsLibres == false){
 
+	    		peutBouger = false;
+	    	    cuisinierAnim.SetTrigger("prendre");
+	    		Invoke ("bouger", 1f);
+	    		mainsLibres = true;
+	    		pain = false;
+	    		poulet = false;
+	    		patate = false;
+	    		painCuit = false;
+	    		pouletCuit = false;
+	    		patateCuit = false;
+
+	    	}
+
+	    	if(zoneLavabo == true && assietteSale == true){
+
+	    		assietteSale = false;
 	    		peutBouger = false;
 	    		cuisinierAnim.SetTrigger("laver");
 	    		Invoke ("bouger", 5f);
@@ -454,7 +472,7 @@ public class Cuisinier : MonoBehaviour {
 
    			}
 
-   		if(infoObject.gameObject.tag == "pain" && transform.eulerAngles.y == 270){
+   		if(infoObject.gameObject.tag == "pain" && transform.eulerAngles.y == 180){
 
     		zonePain = true;
 
@@ -547,6 +565,18 @@ public class Cuisinier : MonoBehaviour {
    		else{
 
    			zoneAssiette5 = false;
+
+   			}
+
+   		if(infoObject.gameObject.tag == "poubelle" && transform.eulerAngles.y == 270){
+
+    		zonePoubelle = true;
+
+   		}
+
+   		else{
+
+   			zonePoubelle = false;
 
    			}
 
